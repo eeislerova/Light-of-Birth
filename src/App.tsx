@@ -26,6 +26,7 @@ export default function App() {
   const [expandedService, setExpandedService] = useState<number | null>(null);
   const [openProduct, setOpenProduct] = useState<string | null>(null);
   const [aboutOpen, setAboutOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   // Initialize form with the translated default care string
   const [form, setForm] = useState<InquiryForm>({
@@ -65,8 +66,8 @@ export default function App() {
   return (
     <main className="min-h-screen overflow-hidden bg-[#fbf3e8] text-[#463329]">
       <header className="absolute left-0 top-0 z-30 w-full px-5 py-5 sm:px-8 lg:px-12">
-        <nav className="mx-auto flex max-w-7xl items-center justify-between text-[#fff8ee]">
-          <a href="#uvod" className="group flex items-center gap-3" aria-label="Light of Birth domů">
+        <nav className="relative mx-auto flex max-w-7xl items-center justify-between text-[#fff8ee]">
+          <a href="#uvod" onClick={() => setMobileMenuOpen(false)} className="group flex items-center gap-3" aria-label="Light of Birth domů">
             <Wordmark
               size="clamp(1rem, 2.2vw, 1.35rem)"
               inkClassName="text-[#fff8ee]"
@@ -82,6 +83,51 @@ export default function App() {
               <button onClick={() => setLang("cs")} className={`transition ${lang === "cs" ? "font-bold text-white" : "text-white/50 hover:text-white/80"}`}>CZ</button>
               <span className="text-white/20">|</span>
               <button onClick={() => setLang("en")} className={`transition ${lang === "en" ? "font-bold text-white" : "text-white/50 hover:text-white/80"}`}>EN</button>
+            </div>
+          </div>
+          <button
+            type="button"
+            aria-label={mobileMenuOpen ? "Zavřít menu" : "Otevřít menu"}
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-navigation"
+            onClick={() => setMobileMenuOpen((open) => !open)}
+            className="relative z-20 flex h-11 w-11 items-center justify-center rounded-full border border-white/45 bg-[#2d1a12]/20 backdrop-blur-sm transition hover:border-white sm:hidden"
+          >
+            <span className="sr-only">{mobileMenuOpen ? "Zavřít menu" : "Otevřít menu"}</span>
+            <span aria-hidden="true" className="relative block h-4 w-5">
+              <span className={`absolute left-0 top-0.5 h-px w-5 bg-current transition duration-300 ${mobileMenuOpen ? "translate-y-[6px] rotate-45" : ""}`} />
+              <span className={`absolute left-0 top-[7px] h-px w-5 bg-current transition duration-300 ${mobileMenuOpen ? "opacity-0" : ""}`} />
+              <span className={`absolute left-0 top-[13px] h-px w-5 bg-current transition duration-300 ${mobileMenuOpen ? "-translate-y-[6px] -rotate-45" : ""}`} />
+            </span>
+          </button>
+
+          <div
+            id="mobile-navigation"
+            className={`absolute right-0 top-14 w-[min(19rem,calc(100vw-2.5rem))] origin-top-right rounded-2xl border border-white/20 bg-[#3b251b]/95 p-6 shadow-2xl backdrop-blur-md transition duration-300 sm:hidden ${
+              mobileMenuOpen ? "visible translate-y-0 scale-100 opacity-100" : "invisible -translate-y-2 scale-95 opacity-0"
+            }`}
+          >
+            <div className="flex flex-col text-sm uppercase tracking-[0.16em]">
+              {[
+                ["#pece", locale.nav.care],
+                ["#tradice", locale.nav.tradition],
+                ["#shop", locale.nav.guides],
+                ["#kontakt", locale.nav.contact],
+              ].map(([href, label]) => (
+                <a
+                  key={href}
+                  href={href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="border-b border-white/15 py-4 transition hover:text-white"
+                >
+                  {label}
+                </a>
+              ))}
+            </div>
+            <div className="mt-5 flex items-center gap-4 text-xs tracking-[0.2em]">
+              <button onClick={() => { setLang("cs"); setMobileMenuOpen(false); }} className={`transition ${lang === "cs" ? "font-bold text-white" : "text-white/50 hover:text-white/80"}`}>CZ</button>
+              <span className="text-white/20">|</span>
+              <button onClick={() => { setLang("en"); setMobileMenuOpen(false); }} className={`transition ${lang === "en" ? "font-bold text-white" : "text-white/50 hover:text-white/80"}`}>EN</button>
             </div>
           </div>
         </nav>
