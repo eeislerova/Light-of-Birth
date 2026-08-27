@@ -333,9 +333,9 @@ export default function App() {
                 <div id="o-mne-obsah" className="mt-8 grid gap-10 border-t border-[#d8b797] pt-8 md:grid-cols-[0.8fr_1.2fr] lg:gap-14">
                   <div>
                     <img
-                      src="/images/eliska.jpg"
-                      alt="Eliška S. Eislerová"
-                      className="w-full rounded-2xl object-cover brightness-125 contrast-105 filter"
+                      src="/images/eliska-o-mne.jpg"
+                      alt="Portrét Elišky S."
+                      className="aspect-[4/5] w-full rounded-2xl object-cover object-center"
                     />
                   </div>
                   <div className="space-y-8">
