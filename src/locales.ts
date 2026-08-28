@@ -159,13 +159,13 @@ export const t = {
 
 export const coursesData = {
   cs: [
-    "The Doula Training Program, The doula Collective India, 2026",
+    "The Doula Collective India – The Doula Training Program, 2026",
     "AyurMama – Ayurvedic postpartum care, 2026",
     "Workshop s Dr. Michelem Odentem a Lilianou Lammers, 2024",
     "Ammadula akademie – Kompletní příprava pro porodní a poporodní duly, 2023",
   ],
   en: [
-    "The Doula Training Program, The doula Collective India, 2026",
+    "The Doula Collective India – The Doula Training Program, 2026",
     "AyurMama – Ayurvedic postpartum care, 2026",
     "Workshop with Dr. Michel Odent and Liliana Lammers, 2024",
     "Ammadula Academy – Comprehensive preparation for birth and postpartum doulas, 2023",
