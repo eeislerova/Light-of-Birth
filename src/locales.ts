@@ -17,7 +17,7 @@ export const t = {
     space: {
       eyebrow: "O prostoru péče",
       title: "Jemná opora od prvních otázek po šestinedělí.",
-      text: "Light of Birth je pozvání ke klidu, důvěře a praktické přípravě. Eliška S. drží bezpečný prostor pro ženu, miminko i rodinu a citlivě propojuje tělesnou, emoční a rituální rovinu péče. Dula nenahrazuje zdravotnickou péči, ale doplňuje ji lidskou kontinuitou a pozorností.",
+      text: "Light of Birth vás zve do prostoru péče, ve kterém můžete zpomalit, cítit se bezpečně a s důvěrou se připravovat na těhotenství, porod i čas po něm. Eliška S. vás provází s respektem k vašim potřebám a citlivě propojuje praktickou přípravu s péčí o tělo, emoce a osobní prožitek. Dula nenahrazuje zdravotnickou péči – doplňuje ji laskavou přítomností, kontinuitou a pozorností věnovanou právě vám.",
     },
     care: {
       eyebrow: "Nabídka",
@@ -94,7 +94,7 @@ export const t = {
     space: {
       eyebrow: "About the care space",
       title: "Gentle support from the first questions through postpartum.",
-      text: "Light of Birth is an invitation to calm, trust, and practical preparation. Eliška S. holds a safe space for the woman, baby, and family, sensitively connecting the physical, emotional, and ritual layers of care. A doula does not replace medical care but complements it with human continuity and attention.",
+      text: "Light of Birth invites you into a space of care where you can slow down, feel safe, and prepare with confidence for pregnancy, birth, and the time that follows. Eliška S. supports you with respect for your needs, sensitively weaving practical preparation together with care for your body, emotions, and personal experience. A doula does not replace medical care – she complements it with a compassionate presence, continuity, and attention devoted specifically to you.",
     },
     care: {
       eyebrow: "Services",

@@ -1,97 +1,127 @@
-# Light of Birth — nasazení na WordPress a napojení e-shopu
+# Light of Birth — dokumentace webu
 
-## 1. Doporučená varianta
+> Název tohoto souboru je historický. Web už není postavený na WordPressu.
 
-**WordPress + WooCommerce**, vzhled překlopený do vlastní šablony podle tohoto návrhu.
-Obsah (blog, produkty, texty) pak spravuješ přímo ve WordPressu bez zásahu do kódu.
+## Aktuální řešení
 
-## 2. Co je potřeba nainstalovat
+Light of Birth je jednostránková, dvojjazyčná webová aplikace vytvořená pomocí:
 
-| Plugin | K čemu slouží |
-|---|---|
-| WooCommerce | e-shop, objednávky, faktury |
-| WooCommerce platební brána | Stripe / Comgate / GoPay / PayPal |
-| Complianz nebo CookieYes | cookie lišta a GDPR |
-| Wordfence | zabezpečení |
-| WP Rocket nebo LiteSpeed Cache | rychlost načítání |
+- React 19
+- TypeScript
+- Vite 7
+- Tailwind CSS 4
 
-## 3. Nastavení digitálních produktů (e-booky)
+Web nevyužívá WordPress, databázi ani administrační rozhraní. Obsah se upravuje přímo ve zdrojových souborech projektu a změny se publikují novým buildem.
 
-Pro každého průvodce ve WooCommerce:
+## Lokální spuštění
 
-1. **Produkty → Přidat nový**
-2. Zaškrtnout **Virtuální** a **Ke stažení**
-3. Nahrát PDF do pole *Soubory ke stažení*
-4. Nastavit *Limit stažení* (např. 3) a *Platnost odkazu* (např. 30 dní)
-5. Uložit a poznamenat si **ID produktu** (v URL: `post=123`)
+Požadavkem je aktuální LTS verze Node.js a npm.
 
-Po zaplacení pošle WooCommerce odkaz ke stažení automaticky e-mailem.
+```bash
+npm install
+npm run dev
+```
 
-## 4. Propojení tohoto webu s WooCommerce
+Vite po spuštění vypíše lokální adresu webu, obvykle `http://localhost:5173`.
 
-Vše se nastavuje v jediném souboru: `src/shopConfig.ts`
+## Produkční build
+
+```bash
+npm run build
+```
+
+Výsledek se vytvoří ve složce `dist`. Plugin `vite-plugin-singlefile` vloží JavaScript a CSS přímo do souboru `dist/index.html`. Obrázky z adresáře `public/images` zůstávají samostatnými soubory a musí se nasadit společně s HTML.
+
+Lokální kontrola produkčního buildu:
+
+```bash
+npm run preview
+```
+
+## Struktura projektu
+
+```text
+src/
+├── App.tsx                 hlavní struktura a chování webu
+├── locales.ts             české a anglické texty, služby a kurzy
+├── shopConfig.ts          nabídka digitálních průvodců a nákupní odkazy
+├── index.css              globální styly a animace
+├── main.tsx               vstupní bod aplikace
+└── components/
+    └── Wordmark.tsx       slovní značka Light of Birth
+
+public/images/             obrázky používané na webu
+vite.config.ts             nastavení Vite, Tailwindu a single-file buildu
+```
+
+## Úpravy obsahu
+
+### Texty a překlady
+
+České a anglické texty jsou v `src/locales.ts` v objektu `t`:
+
+- `cs` — česká verze
+- `en` — anglická verze
+
+Ve stejném souboru jsou také:
+
+- `coursesData` — vzdělání a kurzy v sekci O mně
+- `servicesData` — nabídka péče, popisy a ceny
+
+Při přidání nebo změně obsahu je potřeba zkontrolovat obě jazykové varianty.
+
+### Digitální průvodci
+
+Produkty jsou definované v `src/shopConfig.ts` ve funkci `getProducts`. U každého produktu lze upravit název, popis, obsah, formát, cenu a další údaje.
+
+Nákupní tlačítka nyní fungují jako e-mailová poptávka, protože:
 
 ```ts
-export const storeBaseUrl = "https://www.lightofbirth.cz";
-export const wooCommerceEnabled = true;   // přepnout na true po spuštění e-shopu
+export const wooCommerceEnabled = false;
 ```
 
-A u každého produktu doplnit `productId` z WooCommerce:
+Původní možnost napojení na WooCommerce v souboru zůstává, ale aktuální web na WordPressu ani WooCommerce neběží. Před zapojením skutečných plateb je vhodné nahradit tuto integraci řešením odpovídajícím zvolené prodejní platformě.
+
+### Kontaktní formulář
+
+Formulář v `src/App.tsx` sestaví e-mail a otevře výchozí e-mailovou aplikaci návštěvníka pomocí odkazu `mailto:`. Data se neposílají na vlastní server a nikde se neukládají.
+
+Kontaktní adresa je definovaná na začátku souboru:
 
 ```ts
-{
-  id: "priprava-k-porodu",
-  productId: 123,   // ← ID z WooCommerce
-  ...
-}
+const contactEmail = "kontakt@lightofbirth.cz";
 ```
 
-Tlačítko „Stáhnout“ pak vede na nativní endpoint:
+### Obrázky
 
-```
-https://www.lightofbirth.cz/kosik/?add-to-cart=123
-```
+Obrázky se ukládají do `public/images` a v komponentách se používají cestou začínající `/images/`, například:
 
-Dokud je `wooCommerceEnabled = false`, funguje tlačítko jako objednávka e-mailem
-(vhodné pro spuštění webu dřív než e-shopu).
-
-## 5. Platební brána
-
-Doporučené pro ČR:
-
-- **Comgate** nebo **GoPay** — platba kartou i bankovním převodem, české faktury
-- **Stripe** — nejjednodušší nastavení, karty a Apple/Google Pay
-
-Nastavení: *WooCommerce → Nastavení → Platby*. Brána se použije automaticky
-při dokončení objednávky, v kódu webu se nic dalšího neupravuje.
-
-## 6. Právní stránka e-shopu
-
-Do patičky už vedou odkazy na tři stránky, které je potřeba ve WordPressu vytvořit:
-
-- `/vymezeni-odpovednosti`
-- `/zasady-ochrany-osobnich-udaju`
-- `/obchodni-podminky`
-
-U prodeje digitálního obsahu je nutné mít v obchodních podmínkách souhlas
-se zahájením plnění před uplynutím lhůty pro odstoupení (jinak platí 14denní
-lhůta na vrácení).
-
-## 7. Struktura stránek ve WordPressu
-
-```
-Úvod                     (šablona podle tohoto návrhu)
-Péče                     (balíčky, rozklikávací)
-Tradice
-O mně
-Průvodci                 (WooCommerce Obchod)
-  └ detail produktu
-Blog
-Kontakt
-Košík / Pokladna / Můj účet   (vytvoří WooCommerce automaticky)
+```tsx
+<img src="/images/eliska-o-mne.jpg" alt="Portrét Elišky S." />
 ```
 
-## 8. Formulář a rezervace
+## Nasazení
 
-- Kontaktní formulář: **Contact Form 7** nebo **WPForms**
-- Rezervace úvodního setkání: **Amelia** nebo napojení na **Calendly**
+Repozitář sám nyní neobsahuje automatický deployment ani konfiguraci konkrétní hostingové služby. Pro publikování je potřeba:
+
+1. spustit `npm run build`,
+2. nahrát celý obsah složky `dist` na statický hosting,
+3. ověřit, že jsou dostupné také soubory z `dist/images`,
+4. zkontrolovat českou i anglickou verzi, odkazy, formulář a mobilní zobrazení.
+
+Web lze provozovat na libovolném statickém hostingu, který servíruje výsledný HTML soubor a assety přes HTTPS.
+
+## Kontrola před publikováním
+
+```bash
+npm run build
+```
+
+Po úspěšném buildu zkontrolovat zejména:
+
+- přepínání jazyků CZ/EN,
+- rozbalování služeb a sekce O mně,
+- kontaktní e-mail a obsah formuláře,
+- ceny a texty nabídek,
+- odkazy v patičce,
+- zobrazení na mobilu i počítači.
