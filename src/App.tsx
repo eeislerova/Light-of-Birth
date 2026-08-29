@@ -3,8 +3,6 @@ import Wordmark from "./components/Wordmark";
 import { buyUrl, getProducts } from "./shopConfig";
 import { t, coursesData, servicesData, type Lang } from "./locales";
 
-const contactEmail = "kontakt@lightofbirth.cz";
-
 type InquiryForm = {
   name: string;
   email: string;
@@ -20,8 +18,12 @@ const initialForm: InquiryForm = {
 };
 
 export default function App() {
-  const [lang, setLang] = useState<Lang>("cs");
+  const [lang, setLang] = useState<Lang>(() =>
+    window.location.hostname.toLowerCase().endsWith(".com") ? "en" : "cs"
+  );
   const locale = t[lang];
+  const domainEnding = window.location.hostname.toLowerCase().endsWith(".com") ? "com" : "cz";
+  const contactEmail = `${lang === "cs" ? "kontakt" : "contact"}@lightofbirth.${domainEnding}`;
 
   const [expandedService, setExpandedService] = useState<number | null>(null);
   const [openProduct, setOpenProduct] = useState<string | null>(null);

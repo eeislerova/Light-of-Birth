@@ -70,6 +70,8 @@ Ve stejném souboru jsou také:
 
 Při přidání nebo změně obsahu je potřeba zkontrolovat obě jazykové varianty.
 
+Výchozí jazyk se volí podle domény: na `lightofbirth.cz` se web otevře česky a na `lightofbirth.com` anglicky. Návštěvník může jazyk na obou doménách kdykoliv přepnout pomocí volby CZ/EN v navigaci.
+
 ### Digitální průvodci
 
 Produkty jsou definované v `src/shopConfig.ts` ve funkci `getProducts`. U každého produktu lze upravit název, popis, obsah, formát, cenu a další údaje.
@@ -86,10 +88,13 @@ Původní možnost napojení na WooCommerce v souboru zůstává, ale aktuální
 
 Formulář v `src/App.tsx` sestaví e-mail a otevře výchozí e-mailovou aplikaci návštěvníka pomocí odkazu `mailto:`. Data se neposílají na vlastní server a nikde se neukládají.
 
-Kontaktní adresa je definovaná na začátku souboru:
+Kontaktní adresa se v `src/App.tsx` vybírá podle jazyka a domény, na které návštěvník web otevřel:
 
-```ts
-const contactEmail = "kontakt@lightofbirth.cz";
+```text
+česká verze na .cz       kontakt@lightofbirth.cz
+anglická verze na .cz    contact@lightofbirth.cz
+česká verze na .com      kontakt@lightofbirth.com
+anglická verze na .com   contact@lightofbirth.com
 ```
 
 ### Obrázky
