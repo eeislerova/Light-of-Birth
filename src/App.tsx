@@ -76,9 +76,10 @@ export default function App() {
               accentClassName="text-[#e6a179]"
             />
           </a>
-          <div className="hidden items-center gap-8 text-sm tracking-[0.16em] uppercase sm:flex">
+          <div className="hidden items-center gap-6 text-sm tracking-[0.16em] uppercase sm:flex lg:gap-8">
             <a className="transition hover:text-white" href="#pece">{locale.nav.care}</a>
             <a className="transition hover:text-white" href="#tradice">{locale.nav.tradition}</a>
+            <a className="transition hover:text-white" href="#o-mne">{locale.nav.about}</a>
             <a className="transition hover:text-white" href="#shop">{locale.nav.guides}</a>
             <a className="transition hover:text-white" href="#kontakt">{locale.nav.contact}</a>
             <div className="ml-4 flex gap-3 text-xs tracking-[0.2em]">
@@ -113,6 +114,7 @@ export default function App() {
               {[
                 ["#pece", locale.nav.care],
                 ["#tradice", locale.nav.tradition],
+                ["#o-mne", locale.nav.about],
                 ["#shop", locale.nav.guides],
                 ["#kontakt", locale.nav.contact],
               ].map(([href, label]) => (
@@ -314,15 +316,44 @@ export default function App() {
           <div className="space-y-8 text-lg leading-8 text-[#73513d]">
             <p>{locale.tradition.p1}</p>
             <p>{locale.tradition.p2}</p>
-            <div id="o-mne" className="pt-2">
+          </div>
+        </div>
+      </section>
+
+      <section id="o-mne" className="bg-[#fff9f0] px-5 py-24 sm:px-8 lg:px-12 lg:py-32">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-start lg:gap-16">
+            <div>
+              <img
+                src="/images/eliska-o-mne.jpg"
+                alt="Portrét Elišky S."
+                className="aspect-[4/5] w-full rounded-2xl object-cover object-center"
+              />
+            </div>
+            <div className="text-lg leading-8 text-[#73513d]">
+              <p className="text-sm uppercase tracking-[0.24em] text-[#a0693f]">{locale.about.eyebrow}</p>
+              <h2 className="mt-4 font-serif text-5xl leading-tight tracking-[-0.04em] text-[#493226] sm:text-6xl">
+                {locale.about.title}
+              </h2>
+              <div className="mt-10 space-y-8">
+                <p>{locale.about.p1}</p>
+                <p>
+                  <strong className="font-semibold text-[#493226]">{locale.about.p2Lead}</strong>
+                  {locale.about.p2}
+                </p>
+                <p>{locale.about.p3}</p>
+                <p>{locale.about.p4}</p>
+              </div>
+
+              <div className="mt-10 border-t border-[#d8b797] pt-8">
               <button
                 type="button"
                 onClick={() => setAboutOpen((open) => !open)}
                 aria-expanded={aboutOpen}
-                aria-controls="o-mne-obsah"
+                aria-controls="vzdelani-a-kurzy"
                 className="inline-flex items-center gap-3 text-sm uppercase tracking-[0.24em] text-[#a0693f] transition hover:text-[#7a4628]"
               >
-                {locale.tradition.more}
+                {locale.about.more}
                 <span
                   className={`text-base transition-transform duration-500 ${aboutOpen ? "rotate-45" : ""}`}
                   aria-hidden="true"
@@ -332,36 +363,19 @@ export default function App() {
               </button>
 
               {aboutOpen ? (
-                <div id="o-mne-obsah" className="mt-8 grid gap-10 border-t border-[#d8b797] pt-8 md:grid-cols-[0.8fr_1.2fr] lg:gap-14">
-                  <div>
-                    <img
-                      src="/images/eliska-o-mne.jpg"
-                      alt="Portrét Elišky S."
-                      className="aspect-[4/5] w-full rounded-2xl object-cover object-center"
-                    />
-                  </div>
-                  <div className="space-y-8">
-                    <p>{locale.about.p1}</p>
-                    <p>
-                      <strong className="font-semibold text-[#493226]">{locale.about.p2Lead}</strong>
-                      {locale.about.p2}
-                    </p>
-                    <p>{locale.about.p3}</p>
-                    <p>{locale.about.p4}</p>
-                    <div>
-                      <p className="text-sm uppercase tracking-[0.24em] text-[#a0693f]">{locale.about.courses}</p>
-                      <ul className="mt-5 space-y-3 text-base">
-                        {coursesData[lang].map((course) => (
-                          <li key={course} className="flex gap-3 leading-7">
-                            <span className="mt-3 h-1.5 w-1.5 shrink-0 rounded-full bg-[#c58958]" />
-                            {course}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
+                <div id="vzdelani-a-kurzy" className="mt-8 border-t border-[#d8b797] pt-8">
+                  <p className="text-sm uppercase tracking-[0.24em] text-[#a0693f]">{locale.about.courses}</p>
+                  <ul className="mt-5 space-y-3 text-base">
+                    {coursesData[lang].map((course) => (
+                      <li key={course} className="flex gap-3 leading-7">
+                        <span className="mt-3 h-1.5 w-1.5 shrink-0 rounded-full bg-[#c58958]" />
+                        {course}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               ) : null}
+              </div>
             </div>
           </div>
         </div>
