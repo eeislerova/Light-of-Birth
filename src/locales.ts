@@ -36,8 +36,11 @@ export const t = {
       more: "Více o mně",
     },
     about: {
-      p1: "Jmenuji se Eliška S. a provázím ženy v Praze a na Kutnohorsku obdobím těhotenství, porodu a šestinedělí. Porod vnímám jako jedinečný životní přechod, který si zaslouží čas, pozornost, respekt a podporu.",
-      p2: "Ve své práci propojuji praktickou přípravu k porodu, práci s tělem a dechem, péči rebozem a principy ájurvédské poporodní péče. Vycházím především z vašich potřeb, přání a z toho, co je pro vás v tomto období důležité.",
+      p1: "Jsem dula a k porodům doprovázím především v porodnicích v Praze a v okolí Kutné Hory.",
+      p2Lead: "Doprovázím pouze jednu ženu měsíčně",
+      p2: ", abych měla dostatek prostoru pro individuální péči před porodem, během něj i v období po narození miminka.",
+      p3: "Ve své práci propojuji praktickou přípravu k porodu, práci s tělem a dechem, péči rebozem a principy tradiční české bylinné a ájurvédské poporodní péče.",
+      p4: "Základem mé péče jsou ale vždy vaše vlastní potřeby a přání a to, co je pro vás v tomto období skutečně důležité.",
       courses: "Vzdělání a kurzy",
     },
     shop: {
@@ -113,8 +116,11 @@ export const t = {
       more: "More about me",
     },
     about: {
-      p1: "My name is Eliška S. and I guide women in Prague and the Kutná Hora region through pregnancy, birth, and the postpartum period. I see birth as a unique life transition that deserves time, attention, respect, and support.",
-      p2: "In my work, I combine practical birth preparation, somatic and breath work, rebozo care, and the principles of Ayurvedic postpartum care. I draw primarily on your needs, wishes, and what is important to you during this time.",
+      p1: "I am a doula and primarily attend births at maternity hospitals in Prague and the Kutná Hora area.",
+      p2Lead: "I support only one woman each month",
+      p2: ", so that I have enough space to provide individual care before and during birth, as well as after the baby is born.",
+      p3: "In my work, I combine practical birth preparation, body and breath work, rebozo care, and the principles of traditional Czech herbal and Ayurvedic postpartum care.",
+      p4: "At the heart of my care, however, are always your own needs and wishes, and what truly matters to you during this time.",
       courses: "Education and courses",
     },
     shop: {
@@ -159,13 +165,11 @@ export const t = {
 
 export const coursesData = {
   cs: [
-    "The Doula Collective India – The Doula Training Program, 2026",
     "AyurMama – Ayurvedic postpartum care, 2026",
     "Workshop s Dr. Michelem Odentem a Lilianou Lammers, 2024",
     "Ammadula akademie – Kompletní příprava pro porodní a poporodní duly, 2023",
   ],
   en: [
-    "The Doula Collective India – The Doula Training Program, 2026",
     "AyurMama – Ayurvedic postpartum care, 2026",
     "Workshop with Dr. Michel Odent and Liliana Lammers, 2024",
     "Ammadula Academy – Comprehensive preparation for birth and postpartum doulas, 2023",

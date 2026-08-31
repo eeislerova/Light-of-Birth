@@ -342,7 +342,12 @@ export default function App() {
                   </div>
                   <div className="space-y-8">
                     <p>{locale.about.p1}</p>
-                    <p>{locale.about.p2}</p>
+                    <p>
+                      <strong className="font-semibold text-[#493226]">{locale.about.p2Lead}</strong>
+                      {locale.about.p2}
+                    </p>
+                    <p>{locale.about.p3}</p>
+                    <p>{locale.about.p4}</p>
                     <div>
                       <p className="text-sm uppercase tracking-[0.24em] text-[#a0693f]">{locale.about.courses}</p>
                       <ul className="mt-5 space-y-3 text-base">
