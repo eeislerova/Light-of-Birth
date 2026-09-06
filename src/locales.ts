@@ -14,11 +14,12 @@ export const t = {
       line2: "S úctou k českým kořenům a indické tradici.",
       btn1: "Domluvit úvodní setkání",
       btn2: "Prohlédnout péči",
+      capacity: "Doprovázím jednu ženu měsíčně, abych pro vás mohla být skutečně k dispozici.",
     },
     space: {
       eyebrow: "O prostoru péče",
       title: "Jemná opora od prvních otázek po šestinedělí.",
-      text: "Light of Birth vás zve do prostoru péče, ve kterém můžete zpomalit, cítit se bezpečně a s důvěrou se připravovat na těhotenství, porod i čas po něm. Eliška S. vás provází s respektem k vašim potřebám a citlivě propojuje praktickou přípravu s péčí o tělo, emoce a osobní prožitek. Dula nenahrazuje zdravotnickou péči – doplňuje ji laskavou přítomností, kontinuitou a pozorností věnovanou právě vám.",
+      text: "Light of Birth vás zve do prostoru péče, ve kterém můžete zpomalit, cítit se bezpečně a s důvěrou se připravovat na těhotenství, porod i čas po něm. Eliška S. vás provází s respektem k vašim potřebám a citlivě propojuje praktickou přípravu s péčí o tělo, emoce a osobní prožitek. Dula nenahrazuje zdravotnickou péči; doplňuje ji laskavou přítomností, kontinuitou a pozorností věnovanou právě vám.",
     },
     care: {
       eyebrow: "Nabídka",
@@ -28,6 +29,18 @@ export const t = {
       detailLabel: "Podrobný obsah péče",
       investment: "Investice",
       btn: "Domluvit úvodní setkání",
+      paths: ["Chci se připravit", "Chci podporu u porodu", "Chci péči po porodu"],
+      pathSummaries: [
+        "3 individuální setkání",
+        "2 předporodní setkání, pohotovost, kontinuální doprovod k porodu a 1 poporodní návštěva",
+        "2 hodiny domácí péče",
+      ],
+      mostPopular: "Nejčastější volba",
+      extendedTitle: "Rozšířená kontinuální péče",
+      extendedText: "Pro ženy, které si přejí jednu průvodkyni během delší části své cesty, nabízím také rozšířené formy péče propojující těhotenství, porod a šestinedělí.",
+      premiumLabel: "Intenzivní individuální péče",
+      cta: "Domluvit seznamovací setkání, 30 minut zdarma",
+      ctaNote: "Setkání může proběhnout online nebo podle domluvy osobně v Praze či na Kutnohorsku.",
     },
     tradition: {
       eyebrow: "Tradice jako zázemí",
@@ -89,7 +102,7 @@ export const t = {
     nav: {
       care: "Care",
       tradition: "Tradition",
-      about: "About me",
+      about: "About",
       guides: "Guides",
       contact: "Contact",
     },
@@ -98,11 +111,12 @@ export const t = {
       line2: "Honoring Czech roots and Indian tradition.",
       btn1: "Schedule a meeting",
       btn2: "View care packages",
+      capacity: "I support one woman each month so that I can be truly available for you.",
     },
     space: {
       eyebrow: "About the care space",
       title: "Gentle support from the first questions through postpartum.",
-      text: "Light of Birth invites you into a space of care where you can slow down, feel safe, and prepare with confidence for pregnancy, birth, and the time that follows. Eliška S. supports you with respect for your needs, sensitively weaving practical preparation together with care for your body, emotions, and personal experience. A doula does not replace medical care – she complements it with a compassionate presence, continuity, and attention devoted specifically to you.",
+      text: "Light of Birth invites you into a space of care where you can slow down, feel safe, and prepare with confidence for pregnancy, birth, and the time that follows. Eliška S. supports you with respect for your needs, sensitively weaving practical preparation together with care for your body, emotions, and personal experience. A doula does not replace medical care; she complements it with a compassionate presence, continuity, and attention devoted specifically to you.",
     },
     care: {
       eyebrow: "Services",
@@ -112,6 +126,18 @@ export const t = {
       detailLabel: "Detailed care content",
       investment: "Investment",
       btn: "Schedule a meeting",
+      paths: ["I want to prepare", "I want support during birth", "I want postpartum care"],
+      pathSummaries: [
+        "3 individual meetings",
+        "2 prenatal meetings, on-call availability, continuous birth support, and 1 postpartum visit",
+        "2 hours of care at home",
+      ],
+      mostPopular: "Most popular choice",
+      extendedTitle: "Extended continuous care",
+      extendedText: "For women who would like one guide through a longer part of their journey, I also offer extended forms of care connecting pregnancy, birth, and the postpartum period.",
+      premiumLabel: "Intensive individual care",
+      cta: "Book an introductory meeting, 30 minutes free",
+      ctaNote: "The meeting can take place online or, by arrangement, in person in Prague or the Kutná Hora region.",
     },
     tradition: {
       eyebrow: "Tradition as a foundation",
@@ -126,7 +152,7 @@ export const t = {
       p2: ", so that I have enough space to provide individual care before and during birth, as well as after the baby is born.",
       p3: "In my work, I combine practical birth preparation, body and breath work, rebozo care, and the principles of traditional Czech herbal and Ayurvedic postpartum care.",
       p4: "At the heart of my care, however, are always your own needs and wishes, and what truly matters to you during this time.",
-      eyebrow: "About me",
+      eyebrow: "About",
       title: "Care with space devoted to you.",
       more: "More about me",
       courses: "Education and courses",
@@ -173,16 +199,16 @@ export const t = {
 
 export const coursesData = {
   cs: [
-    "The Doula Collective India – The Doula Training Program, 2026",
-    "AyurMama – Ayurvedic postpartum care, 2026",
+    "The Doula Collective India: The Doula Training Program, 2026",
+    "AyurMama: Ayurvedic postpartum care, 2026",
     "Workshop s Dr. Michelem Odentem a Lilianou Lammers, 2024",
-    "Ammadula akademie – Kompletní příprava pro porodní a poporodní duly, 2023",
+    "Ammadula akademie: Kompletní příprava pro porodní a poporodní duly, 2023",
   ],
   en: [
-    "The Doula Collective India – The Doula Training Program, 2026",
-    "AyurMama – Ayurvedic postpartum care, 2026",
+    "The Doula Collective India: The Doula Training Program, 2026",
+    "AyurMama: Ayurvedic postpartum care, 2026",
     "Workshop with Dr. Michel Odent and Liliana Lammers, 2024",
-    "Ammadula Academy – Comprehensive preparation for birth and postpartum doulas, 2023",
+    "Ammadula Academy: Comprehensive preparation for birth and postpartum doulas, 2023",
   ],
 };
 
@@ -198,7 +224,7 @@ export const servicesData = {
           heading: "Balíček zahrnuje",
           items: [
             "3 individuální setkání",
-            "90–120 minut každé setkání",
+            "90 až 120 minut každé setkání",
             "fyziologii a jednotlivé fáze porodu",
             "začátek porodu a kdy vyrazit do porodnice",
             "porodní prostředí",
@@ -228,7 +254,6 @@ export const servicesData = {
         {
           heading: "Před porodem",
           items: [
-            "nezávazné seznamovací setkání zdarma",
             "2 individuální předporodní setkání",
             "individuální přípravu na porod",
             "vytvoření a konzultaci porodního přání",
@@ -277,7 +302,6 @@ export const servicesData = {
         {
           heading: "Před porodem",
           items: [
-            "nezávazné seznamovací setkání zdarma",
             "3 individuální předporodní setkání",
             "komplexní přípravu na porod",
             "vytvoření porodního přání",
@@ -314,7 +338,11 @@ export const servicesData = {
           ],
         },
       ],
-      price: "27 000 Kč",
+      price: "29 000 Kč",
+      priceLabel: "Zaváděcí cena",
+      priceCondition: "pro ženy s termínem porodu do 30. 11. 2026",
+      laterPriceLabel: "Cena pro pozdější termíny porodu:",
+      laterPrice: "34 000 Kč",
       summary: "3 předporodní setkání | pohotovost | kontinuální doprovod k porodu | 3 poporodní návštěvy",
       priceNote: "osobně v Praze a na Kutnohorsku",
     },
@@ -325,15 +353,25 @@ export const servicesData = {
       detail: "Péče vychází z principů ajurvédské péče o ženu během prvních 42 dní po narození dítěte a je vždy přizpůsobena individuálním potřebám ženy a rodiny.",
       sections: [
         {
-          heading: "Péče může zahrnovat",
+          heading: "Plán, délka a návštěvy",
           items: [
             "individuální plán péče na období šestinedělí",
             "pravidelné domácí návštěvy po dobu 6 týdnů",
             "intenzivnější podporu během prvních dní a týdnů",
+          ],
+        },
+        {
+          heading: "Poporodní výživa",
+          items: [
             "přípravu čerstvé, teplé poporodní stravy",
             "postupné přizpůsobování stravy jednotlivým fázím šestinedělí",
             "ajurvédské principy poporodní výživy",
             "vhodné koření a bylinné přípravy",
+          ],
+        },
+        {
+          heading: "Péče o ženu a regenerace",
+          items: [
             "olejovou péči v rámci mých kompetencí",
             "podporu tepla, odpočinku a regenerace",
             "praktickou péči o ženu",
@@ -341,11 +379,17 @@ export const servicesData = {
             "podporu kojení v rámci kompetencí duly",
             "prostor pro emoce a porodní příběh",
             "podporu partnera a rodiny",
+          ],
+        },
+        {
+          heading: "Podpora mezi návštěvami",
+          items: [
             "průběžnou podporu mezi návštěvami",
           ],
         },
       ],
       detailNote: "Konkrétní rozsah a frekvenci návštěv sestavíme individuálně ještě před narozením miminka.",
+      // TODO: Doplnit konkrétnější podobu prvního a dalších týdnů pouze podle potvrzených údajů.
       price: "od 119 000 Kč",
       summary: "42 dní péče | od 119 000 Kč",
       priceNote: "cena se odvíjí také od preferencí vašeho jídelníčku; dohodou po celé ČR",
@@ -357,30 +401,46 @@ export const servicesData = {
       detail: "Jedna průvodkyně od přípravy během těhotenství přes porod až po celé období šestinedělí.",
       sections: [
         {
-          heading: "Balíček zahrnuje",
+          heading: "Před porodem",
           items: [
-            "nezávazné seznamovací setkání zdarma",
             "3 individuální předporodní setkání",
             "komplexní přípravu na porod",
             "vytvoření porodního přání",
             "přípravu partnera",
             "průběžnou podporu v těhotenství",
             "pohotovost od 38+0 do 42+0",
+          ],
+        },
+        {
+          heading: "Porod",
+          items: [
             "kontinuální doprovod k porodu",
             "podporu během prvních hodin po narození miminka",
+          ],
+        },
+        {
+          heading: "42 dní poporodní péče",
+          items: [
             "individuální plán poporodní péče",
             "42 dní Sacred Window péče",
             "pravidelné domácí návštěvy",
+            "průběžnou podporu během celého šestinedělí",
+          ],
+        },
+        {
+          heading: "Výživa, odpočinek a praktická péče",
+          items: [
             "ajurvédskou poporodní výživu",
             "přípravu jídla podle domluveného rozsahu",
             "péči zaměřenou na odpočinek a regeneraci ženy",
             "praktickou podporu",
             "podporu při péči o miminko",
             "prostor pro emoce a porodní příběh",
-            "průběžnou podporu během celého šestinedělí",
           ],
         },
       ],
+      detailNote: "Konkrétní rozsah péče vzniká individuálně po úvodním rozhovoru.",
+      // TODO: Doplnit podobu prvního a dalších týdnů a faktory konečné ceny pouze podle potvrzených údajů.
       price: "od 149 000 Kč",
       summary: "Těhotenství | porod | 42 dní poporodní péče",
       priceNote: "osobně v Praze a na Kutnohorsku",
@@ -409,16 +469,6 @@ export const servicesData = {
       summary: "2 hodiny | 2 500 Kč",
       priceNote: "domácí návštěva v Praze a na Kutnohorsku",
     },
-    {
-      title: "Seznamovací setkání",
-      subtitle: "Nezávazné setkání před rozhodnutím o spolupráci",
-      text: "30 minut volného prostoru poznat se, probrat vaše přání, termín porodu i možnosti spolupráce.",
-      detail: "Online, nebo podle domluvy v Praze a na Kutnohorsku. Setkání je nezávazné a zdarma.",
-      sections: [],
-      price: "zdarma",
-      summary: "30 minut | zdarma",
-      priceNote: "v Praze, na Kutnohorsku nebo online",
-    },
   ],
   en: [
     {
@@ -431,7 +481,7 @@ export const servicesData = {
           heading: "The package includes",
           items: [
             "3 individual meetings",
-            "90–120 minutes each meeting",
+            "90 to 120 minutes each meeting",
             "physiology and stages of birth",
             "start of labor and when to go to the hospital",
             "birth environment",
@@ -461,7 +511,6 @@ export const servicesData = {
         {
           heading: "Before birth",
           items: [
-            "free no-obligation introductory meeting",
             "2 individual prenatal meetings",
             "individual birth preparation",
             "creating and consulting the birth plan",
@@ -510,7 +559,6 @@ export const servicesData = {
         {
           heading: "Before birth",
           items: [
-            "free no-obligation introductory meeting",
             "3 individual prenatal meetings",
             "comprehensive birth preparation",
             "creating a birth plan",
@@ -547,7 +595,11 @@ export const servicesData = {
           ],
         },
       ],
-      price: "27,000 CZK",
+      price: "29,000 CZK",
+      priceLabel: "Introductory price",
+      priceCondition: "for women with a due date on or before November 30, 2026",
+      laterPriceLabel: "Price for later due dates:",
+      laterPrice: "34,000 CZK",
       summary: "3 prenatal meetings | on-call | continuous birth support | 3 postpartum visits",
       priceNote: "in person in Prague and Kutná Hora region",
     },
@@ -558,15 +610,25 @@ export const servicesData = {
       detail: "The care is based on the principles of Ayurvedic postpartum care for women during the first 42 days after childbirth and is always tailored to the individual needs of the woman and family.",
       sections: [
         {
-          heading: "Care may include",
+          heading: "Plan, duration, and visits",
           items: [
             "individual care plan for the postpartum period",
             "regular home visits for 6 weeks",
             "more intensive support during the first days and weeks",
+          ],
+        },
+        {
+          heading: "Postpartum nutrition",
+          items: [
             "preparation of fresh, warm postpartum food",
             "gradual adaptation of diet to the phases of the postpartum period",
             "Ayurvedic principles of postpartum nutrition",
             "suitable spices and herbal preparations",
+          ],
+        },
+        {
+          heading: "Care for the woman and recovery",
+          items: [
             "oil care within my competence",
             "support for warmth, rest, and regeneration",
             "practical care for the woman",
@@ -574,11 +636,17 @@ export const servicesData = {
             "breastfeeding support within the doula's competence",
             "space for emotions and the birth story",
             "partner and family support",
+          ],
+        },
+        {
+          heading: "Support between visits",
+          items: [
             "ongoing support between visits",
           ],
         },
       ],
       detailNote: "The specific scope and frequency of visits will be arranged individually before the baby is born.",
+      // TODO: Add a more specific first-week and later-weeks outline only when confirmed information is available.
       price: "from 119,000 CZK",
       summary: "42 days of care | from 119,000 CZK",
       priceNote: "price also depends on dietary preferences; available across the whole CZ by agreement",
@@ -590,30 +658,46 @@ export const servicesData = {
       detail: "One guide from preparation during pregnancy through birth to the entire postpartum period.",
       sections: [
         {
-          heading: "The package includes",
+          heading: "Before birth",
           items: [
-            "free no-obligation introductory meeting",
             "3 individual prenatal meetings",
             "comprehensive birth preparation",
             "creating a birth plan",
             "partner preparation",
             "ongoing support during pregnancy",
             "on-call from 38+0 to 42+0",
+          ],
+        },
+        {
+          heading: "Birth",
+          items: [
             "continuous birth support",
             "support during the first hours after the birth",
+          ],
+        },
+        {
+          heading: "42 days of postpartum care",
+          items: [
             "individual postpartum care plan",
             "42 days of Sacred Window care",
             "regular home visits",
+            "ongoing support throughout the entire postpartum period",
+          ],
+        },
+        {
+          heading: "Nutrition, rest, and practical care",
+          items: [
             "Ayurvedic postpartum nutrition",
             "food preparation according to agreed scope",
             "care focused on the woman's rest and regeneration",
             "practical support",
             "support with baby care",
             "space for emotions and the birth story",
-            "ongoing support throughout the entire postpartum period",
           ],
         },
       ],
+      detailNote: "The specific scope of care is created individually after an introductory conversation.",
+      // TODO: Add the first-week and later-weeks outline and final-price factors only when confirmed information is available.
       price: "from 149,000 CZK",
       summary: "Pregnancy | birth | 42 days of postpartum care",
       priceNote: "in person in Prague and Kutná Hora region",
@@ -641,16 +725,6 @@ export const servicesData = {
       price: "2,500 CZK",
       summary: "2 hours | 2,500 CZK",
       priceNote: "home visit in Prague and Kutná Hora region",
-    },
-    {
-      title: "Introductory Meeting",
-      subtitle: "No-obligation meeting before deciding to work together",
-      text: "30 minutes of free space to get to know each other, discuss your wishes, due date, and options for collaboration.",
-      detail: "Online, or by agreement in Prague and the Kutná Hora region. The meeting is non-binding and free of charge.",
-      sections: [],
-      price: "free",
-      summary: "30 minutes | free",
-      priceNote: "in Prague, Kutná Hora region, or online",
     },
   ],
 };

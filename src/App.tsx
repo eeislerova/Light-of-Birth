@@ -17,12 +17,15 @@ const initialForm: InquiryForm = {
   message: "",
 };
 
+type Service = (typeof servicesData)[Lang][number];
+
 export default function App() {
+  const isComDomain = window.location.hostname.toLowerCase().endsWith(".com");
   const [lang, setLang] = useState<Lang>(() =>
-    window.location.hostname.toLowerCase().endsWith(".com") ? "en" : "cs"
+    isComDomain ? "en" : "cs"
   );
   const locale = t[lang];
-  const domainEnding = window.location.hostname.toLowerCase().endsWith(".com") ? "com" : "cz";
+  const domainEnding = isComDomain ? "com" : "cz";
   const contactEmail = `${lang === "cs" ? "kontakt" : "contact"}@lightofbirth.${domainEnding}`;
 
   const [expandedService, setExpandedService] = useState<number | null>(null);
@@ -36,6 +39,19 @@ export default function App() {
     care: locale.contact.serviceDefault,
   });
   const [submitted, setSubmitted] = useState(false);
+
+  const changeLanguage = (nextLang: Lang) => {
+    setForm((current) => {
+      const selectedIndex = servicesData[lang].findIndex((service) => service.title === current.care);
+      return {
+        ...current,
+        care: selectedIndex >= 0
+          ? servicesData[nextLang][selectedIndex].title
+          : t[nextLang].contact.serviceDefault,
+      };
+    });
+    setLang(nextLang);
+  };
 
   const updateField =
     (field: keyof InquiryForm) =>
@@ -65,6 +81,63 @@ export default function App() {
     setSubmitted(true);
   };
 
+  const chooseService = (service: Service) => {
+    setForm((current) => ({ ...current, care: service.title }));
+  };
+
+  const serviceDetail = (service: Service, detailId: string) => (
+    <div id={detailId} className="grid gap-8 bg-[#fbf3e8] px-5 pb-10 pt-8 md:grid-cols-[0.35fr_0.65fr] md:px-8 md:pb-12">
+      <p className="text-sm uppercase tracking-[0.2em] text-[#a0693f]">{locale.care.detailLabel}</p>
+      <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:gap-12">
+        <div>
+          <p className="max-w-2xl text-lg leading-8 text-[#73513d]">{service.detail}</p>
+          {"detailNote" in service && service.detailNote ? (
+            <p className="mt-5 max-w-2xl text-base leading-7 text-[#8a5e42]">{service.detailNote}</p>
+          ) : null}
+          <div className="mt-8 space-y-8">
+            {service.sections.map((section) => (
+              <div key={section.heading}>
+                <h4 className="font-serif text-2xl text-[#493226]">{section.heading}</h4>
+                <ul className="mt-4 grid gap-x-8 gap-y-3 text-[#73513d] sm:grid-cols-2">
+                  {section.items.map((item) => (
+                    <li key={item} className="flex gap-3 leading-7">
+                      <span className="mt-3 h-1.5 w-1.5 shrink-0 rounded-full bg-[#c58958]" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+          <p className="mt-8 border-t border-[#cfa989] pt-5 text-sm font-semibold uppercase tracking-[0.14em] text-[#7a4628]">{service.summary}</p>
+        </div>
+        <div className="border-t border-[#cfa989] pt-5 lg:min-w-52 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
+          <p className="text-sm uppercase tracking-[0.2em] text-[#a0693f]">
+            {"priceLabel" in service ? service.priceLabel : locale.care.investment}
+          </p>
+          <p className="mt-2 font-serif text-3xl text-[#493226]">{service.price}</p>
+          {"priceCondition" in service ? (
+            <>
+              <p className="mt-2 max-w-52 text-sm leading-6 text-[#8a5e42]">{service.priceCondition}</p>
+              <p className="mt-4 max-w-52 text-sm leading-6 text-[#73513d]">
+                {service.laterPriceLabel} <strong className="font-semibold text-[#493226]">{service.laterPrice}</strong>
+              </p>
+            </>
+          ) : null}
+          <p className="mt-2 max-w-52 text-sm leading-6 text-[#8a5e42]">{service.priceNote}</p>
+          <a
+            href="#kontakt"
+            onClick={() => chooseService(service)}
+            className="mt-7 inline-flex rounded-full bg-[#493226] px-5 py-3 text-center text-xs font-semibold uppercase leading-5 tracking-[0.12em] text-[#fff8ee] transition hover:-translate-y-0.5 hover:bg-[#6b442f]"
+          >
+            {locale.care.cta}
+          </a>
+          <p className="mt-3 max-w-52 text-xs leading-5 text-[#8a5e42]">{locale.care.ctaNote}</p>
+        </div>
+      </div>
+    </div>
+  );
+
   return (
     <main className="min-h-screen overflow-hidden bg-[#fbf3e8] text-[#463329]">
       <header className="absolute left-0 top-0 z-30 w-full px-5 py-5 sm:px-8 lg:px-12">
@@ -83,9 +156,9 @@ export default function App() {
             <a className="transition hover:text-white" href="#shop">{locale.nav.guides}</a>
             <a className="transition hover:text-white" href="#kontakt">{locale.nav.contact}</a>
             <div className="ml-4 flex gap-3 text-xs tracking-[0.2em]">
-              <button onClick={() => setLang("cs")} className={`transition ${lang === "cs" ? "font-bold text-white" : "text-white/50 hover:text-white/80"}`}>CZ</button>
+              <button onClick={() => changeLanguage("cs")} className={`transition ${lang === "cs" ? "font-bold text-white" : "text-white/50 hover:text-white/80"}`}>CZ</button>
               <span className="text-white/20">|</span>
-              <button onClick={() => setLang("en")} className={`transition ${lang === "en" ? "font-bold text-white" : "text-white/50 hover:text-white/80"}`}>EN</button>
+              <button onClick={() => changeLanguage("en")} className={`transition ${lang === "en" ? "font-bold text-white" : "text-white/50 hover:text-white/80"}`}>EN</button>
             </div>
           </div>
           <button
@@ -129,9 +202,9 @@ export default function App() {
               ))}
             </div>
             <div className="mt-5 flex items-center gap-4 text-xs tracking-[0.2em]">
-              <button onClick={() => { setLang("cs"); setMobileMenuOpen(false); }} className={`transition ${lang === "cs" ? "font-bold text-white" : "text-white/50 hover:text-white/80"}`}>CZ</button>
+              <button onClick={() => { changeLanguage("cs"); setMobileMenuOpen(false); }} className={`transition ${lang === "cs" ? "font-bold text-white" : "text-white/50 hover:text-white/80"}`}>CZ</button>
               <span className="text-white/20">|</span>
-              <button onClick={() => { setLang("en"); setMobileMenuOpen(false); }} className={`transition ${lang === "en" ? "font-bold text-white" : "text-white/50 hover:text-white/80"}`}>EN</button>
+              <button onClick={() => { changeLanguage("en"); setMobileMenuOpen(false); }} className={`transition ${lang === "en" ? "font-bold text-white" : "text-white/50 hover:text-white/80"}`}>EN</button>
             </div>
           </div>
         </nav>
@@ -139,8 +212,8 @@ export default function App() {
 
       <section id="uvod" className="relative flex min-h-screen items-end px-5 pb-16 pt-28 sm:px-8 lg:px-12 lg:pb-24">
         <img
-          src="/images/light-of-birth-hero.jpg"
-          alt="Těhotná žena s dulou v měkkém ranním světle"
+          src={isComDomain ? "/images/light-of-birth-hero.jpg" : "/images/light-of-birth-hero-europe-v2.jpg"}
+          alt={lang === "cs" ? "Těhotná žena s dulou v měkkém denním světle" : "A pregnant woman with her doula in soft daylight"}
           className="animate-hero-drift absolute inset-0 h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#2d1a12]/80 via-[#5b3826]/30 to-transparent" />
@@ -177,6 +250,9 @@ export default function App() {
                 {locale.hero.btn2}
               </a>
             </div>
+            <p className="animate-rise-three mt-5 max-w-xl text-sm leading-6 text-[#f7e6d4]/85">
+              {locale.hero.capacity}
+            </p>
           </div>
         </div>
       </section>
@@ -210,92 +286,138 @@ export default function App() {
             <p className="mt-5 text-sm uppercase tracking-[0.18em] text-[#a0693f]">{locale.care.note}</p>
           </div>
 
-          <div className="mt-16 divide-y divide-[#d8b797] border-y border-[#d8b797]">
-            {servicesData[lang].map((service, index) => {
-              const isExpanded = expandedService === index;
-              const detailId = `service-detail-${index}`;
+          <div className="mt-16 grid gap-5 lg:grid-cols-3">
+            {[0, 1, 5].map((serviceIndex, pathIndex) => {
+              const service = servicesData[lang][serviceIndex];
+              const isExpanded = expandedService === serviceIndex;
+              const detailId = `service-detail-${serviceIndex}`;
+              const isFeatured = pathIndex === 1;
 
               return (
-                <article key={service.title} className="group">
+                <article
+                  key={service.title}
+                  className={`overflow-hidden rounded-[1.75rem] border transition duration-500 ${
+                    isFeatured
+                      ? "border-[#b9784e] bg-[#f8eadc] shadow-[0_20px_55px_rgba(122,70,40,0.14)]"
+                      : "border-[#dfc4aa] bg-[#fbf3e8]"
+                  } ${isExpanded ? "lg:col-span-3" : ""}`}
+                >
                   <button
                     type="button"
                     aria-expanded={isExpanded}
                     aria-controls={detailId}
-                    onClick={() => setExpandedService(isExpanded ? null : index)}
-                    className="grid w-full gap-8 py-10 text-left transition duration-500 hover:bg-[#fbf3e8] md:grid-cols-[0.35fr_0.65fr] md:py-14 md:px-4"
+                    onClick={() => setExpandedService(isExpanded ? null : serviceIndex)}
+                    className="flex w-full flex-col p-7 text-left sm:p-8"
                   >
-                    <div className="flex items-baseline gap-5">
-                      <span className="font-serif text-4xl text-[#c58958]">0{index + 1}</span>
-                      <h3 className="font-serif text-3xl uppercase tracking-[-0.03em] text-[#4b3125] sm:text-4xl">
-                        {service.title}
-                      </h3>
+                    <div className="flex min-h-7 items-start justify-between gap-4">
+                      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#a0693f]">{locale.care.paths[pathIndex]}</p>
+                      {isFeatured ? (
+                        <span className="rounded-full bg-[#a7663f] px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-[#fff8ee]">
+                          {locale.care.mostPopular}
+                        </span>
+                      ) : null}
                     </div>
-                    <div className="flex items-center gap-6">
-                      <div className="flex-1">
-                        <p className="font-serif text-xl text-[#7a4628]">{service.subtitle}</p>
-                        <p className="mt-2 max-w-3xl text-lg leading-8 text-[#73513d]">{service.text}</p>
+                    <h3 className="mt-7 font-serif text-3xl leading-tight text-[#493226] sm:text-4xl">{service.title}</h3>
+                    <p className="mt-4 flex-1 text-base leading-7 text-[#73513d]">{locale.care.pathSummaries[pathIndex]}</p>
+                    <div className="mt-7 flex items-end justify-between gap-4 border-t border-[#d8b797] pt-5">
+                      <div>
+                        <p className="text-xs uppercase tracking-[0.18em] text-[#a0693f]">{locale.care.investment}</p>
+                        <p className="mt-1 font-serif text-3xl text-[#493226]">{service.price}</p>
                       </div>
-                      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[#cfa989] text-[#7a4628] transition duration-500 group-hover:border-[#7a4628]">
-                        <svg
-                          className={`h-5 w-5 transition-transform duration-500 ${isExpanded ? "rotate-45" : ""}`}
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="1.6"
-                          strokeLinecap="round"
-                          aria-hidden="true"
-                        >
-                          <path d="M12 5v14M5 12h14" />
-                        </svg>
+                      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[#cfa989] text-[#7a4628]">
+                        <span className={`text-xl transition-transform duration-500 ${isExpanded ? "rotate-45" : ""}`}>+</span>
                       </span>
                     </div>
                   </button>
-                  {isExpanded ? (
-                    <div id={detailId} className="grid gap-8 bg-[#fbf3e8] px-5 pb-10 pt-2 md:grid-cols-[0.35fr_0.65fr] md:px-8 md:pb-12">
-                      <p className="text-sm uppercase tracking-[0.2em] text-[#a0693f]">{locale.care.detailLabel}</p>
-                      <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:gap-12">
-                        <div>
-                          <p className="max-w-2xl text-lg leading-8 text-[#73513d]">{service.detail}</p>
-                          {"detailNote" in service && service.detailNote ? (
-                            <p className="mt-5 max-w-2xl text-base leading-7 text-[#8a5e42]">{service.detailNote}</p>
-                          ) : null}
-                          {service.sections.length > 0 ? (
-                            <div className="mt-8 space-y-8">
-                              {service.sections.map((section) => (
-                                <div key={section.heading}>
-                                  <h4 className="font-serif text-2xl text-[#493226]">{section.heading}</h4>
-                                  <ul className="mt-4 grid gap-x-8 gap-y-3 text-[#73513d] sm:grid-cols-2">
-                                    {section.items.map((item) => (
-                                      <li key={item} className="flex gap-3 leading-7">
-                                        <span className="mt-3 h-1.5 w-1.5 shrink-0 rounded-full bg-[#c58958]" />
-                                        {item}
-                                      </li>
-                                    ))}
-                                  </ul>
-                                </div>
-                              ))}
-                            </div>
-                          ) : null}
-                          <p className="mt-8 border-t border-[#cfa989] pt-5 text-sm font-semibold uppercase tracking-[0.14em] text-[#7a4628]">{service.summary}</p>
-                        </div>
-                        <div className="border-t border-[#cfa989] pt-5 lg:min-w-48 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
-                          <p className="text-sm uppercase tracking-[0.2em] text-[#a0693f]">{locale.care.investment}</p>
-                          <p className="mt-2 font-serif text-3xl text-[#493226]">{service.price}</p>
-                          <p className="mt-2 max-w-48 text-sm leading-6 text-[#8a5e42]">{service.priceNote}</p>
-                          <a
-                            href="#kontakt"
-                            onClick={() => setForm((current) => ({ ...current, care: service.title }))}
-                            className="mt-7 inline-flex text-sm font-semibold uppercase tracking-[0.14em] text-[#7a4628] underline decoration-[#d8b797] underline-offset-8 transition hover:text-[#493226]"
-                          >
-                            {locale.care.btn}
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  ) : null}
+                  {isExpanded ? serviceDetail(service, detailId) : null}
                 </article>
               );
             })}
+          </div>
+
+          <div className="mt-10 text-center">
+            <a href="#kontakt" className="inline-flex rounded-full bg-[#493226] px-7 py-4 text-sm font-semibold uppercase tracking-[0.14em] text-[#fff8ee] transition hover:-translate-y-1 hover:bg-[#6b442f]">
+              {locale.care.cta}
+            </a>
+            <p className="mx-auto mt-4 max-w-2xl text-sm leading-6 text-[#8a5e42]">{locale.care.ctaNote}</p>
+          </div>
+
+          <div className="mt-20 border-t border-[#d8b797] pt-14">
+            <div className="max-w-3xl">
+              <h3 className="font-serif text-4xl text-[#493226] sm:text-5xl">{locale.care.extendedTitle}</h3>
+              <p className="mt-5 text-lg leading-8 text-[#73513d]">{locale.care.extendedText}</p>
+            </div>
+
+            {(() => {
+              const service = servicesData[lang][2];
+              const isExpanded = expandedService === 2;
+              const detailId = "service-detail-2";
+              return (
+                <article className="mt-10 overflow-hidden rounded-2xl border border-[#dfc4aa] bg-[#fbf3e8]">
+                  <button type="button" aria-expanded={isExpanded} aria-controls={detailId} onClick={() => setExpandedService(isExpanded ? null : 2)} className="grid w-full gap-6 p-7 text-left md:grid-cols-[1fr_auto] md:items-center md:p-9">
+                    <div>
+                      <h4 className="font-serif text-3xl text-[#493226]">{service.title}</h4>
+                      <p className="mt-3 text-base leading-7 text-[#73513d]">{service.summary}</p>
+                    </div>
+                    <div className="flex items-center justify-between gap-6 md:justify-end">
+                      <div className="md:text-right">
+                        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#a0693f]">{service.priceLabel}</p>
+                        <p className="mt-1 font-serif text-3xl text-[#493226]">{service.price}</p>
+                        <p className="mt-1 max-w-xs text-sm leading-6 text-[#8a5e42]">{service.priceCondition}</p>
+                        <p className="mt-2 text-sm leading-6 text-[#73513d]">
+                          {service.laterPriceLabel} <strong className="font-semibold text-[#493226]">{service.laterPrice}</strong>
+                        </p>
+                      </div>
+                      <span className="flex h-11 w-11 items-center justify-center rounded-full border border-[#cfa989] text-[#7a4628]">
+                        <span className={`text-xl transition-transform duration-500 ${isExpanded ? "rotate-45" : ""}`}>+</span>
+                      </span>
+                    </div>
+                  </button>
+                  {isExpanded ? serviceDetail(service, detailId) : null}
+                </article>
+              );
+            })()}
+
+            <div className="mt-8 grid gap-7 xl:grid-cols-2">
+              {[3, 4].map((serviceIndex) => {
+                const service = servicesData[lang][serviceIndex];
+                const isExpanded = expandedService === serviceIndex;
+                const detailId = `service-detail-${serviceIndex}`;
+                return (
+                  <article key={service.title} className={`overflow-hidden rounded-[1.75rem] border border-[#cda480] bg-[#f8eadc] shadow-[0_18px_50px_rgba(122,70,40,0.1)] ${isExpanded ? "xl:col-span-2" : ""}`}>
+                    <button
+                      type="button"
+                      aria-expanded={isExpanded}
+                      aria-controls={detailId}
+                      onClick={() => setExpandedService(isExpanded ? null : serviceIndex)}
+                      className="flex w-full flex-col p-7 text-left sm:p-9"
+                    >
+                      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#a0693f]">{locale.care.premiumLabel}</p>
+                      <h4 className="mt-4 font-serif text-4xl leading-tight text-[#493226]">{service.title}</h4>
+                      <p className="mt-2 font-serif text-xl text-[#7a4628]">{service.subtitle}</p>
+                      <p className="mt-6 flex-1 text-base leading-7 text-[#73513d]">{service.text}</p>
+                      <div className="mt-7 flex items-end justify-between gap-5 border-t border-[#cfa989] pt-6">
+                        <div>
+                          <p className="font-serif text-3xl text-[#493226]">{service.price}</p>
+                          <p className="mt-2 text-sm leading-6 text-[#8a5e42]">{service.priceNote}</p>
+                        </div>
+                        <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[#cfa989] text-[#7a4628]">
+                          <span className={`text-xl transition-transform duration-500 ${isExpanded ? "rotate-45" : ""}`}>+</span>
+                        </span>
+                      </div>
+                    </button>
+                    {isExpanded ? serviceDetail(service, detailId) : null}
+                  </article>
+                );
+              })}
+            </div>
+
+            <div className="mt-12 text-center">
+              <a href="#kontakt" className="inline-flex rounded-full border border-[#a0693f] px-7 py-4 text-sm font-semibold uppercase tracking-[0.14em] text-[#7a4628] transition hover:-translate-y-1 hover:bg-[#f8eadc]">
+                {locale.care.cta}
+              </a>
+              <p className="mx-auto mt-4 max-w-2xl text-sm leading-6 text-[#8a5e42]">{locale.care.ctaNote}</p>
+            </div>
           </div>
           <div className="mt-10 grid gap-4 border-t border-[#d8b797] pt-7 text-sm leading-6 text-[#8a5e42] md:grid-cols-2 md:gap-10">
             <p>{locale.footer.disclaimer1}</p>
@@ -508,7 +630,7 @@ export default function App() {
                 onChange={updateField("care")}
                 className="w-full border-b border-[#cfa989] bg-transparent py-3 text-base normal-case tracking-normal text-[#493226] outline-none transition focus:border-[#7a4628]"
               >
-                {servicesData[lang].map((service) => (
+                {[0, 1, 5, 2, 3, 4].map((serviceIndex) => servicesData[lang][serviceIndex]).map((service) => (
                   <option key={service.title}>{service.title}</option>
                 ))}
                 <option>{locale.contact.serviceDefault}</option>
