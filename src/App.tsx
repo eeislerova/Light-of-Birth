@@ -672,7 +672,7 @@ export default function App() {
             />
           </div>
           <div className="flex gap-6 text-sm text-[#d8c2ac]">
-            <a className="underline underline-offset-4 hover:text-[#fff8ee]" href="#">Instagram</a>
+            <a className="underline underline-offset-4 hover:text-[#fff8ee]" href="https://www.instagram.com/lightofbirth/" target="_blank" rel="noopener noreferrer">Instagram</a>
             <a className="underline underline-offset-4 hover:text-[#fff8ee]" href="#">LinkedIn</a>
           </div>
           <p className="text-sm text-[#d8c2ac]">{locale.footer.subtitle}</p>
