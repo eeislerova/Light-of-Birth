@@ -19,6 +19,9 @@ const initialForm: InquiryForm = {
 
 type Service = (typeof servicesData)[Lang][number];
 
+// Keep the guides ready for a future launch without showing the shop or its navigation links.
+const showGuides = false;
+
 export default function App() {
   const isComDomain = window.location.hostname.toLowerCase().endsWith(".com");
   const [lang, setLang] = useState<Lang>(() =>
@@ -153,7 +156,7 @@ export default function App() {
             <a className="transition hover:text-white" href="#pece">{locale.nav.care}</a>
             <a className="transition hover:text-white" href="#tradice">{locale.nav.tradition}</a>
             <a className="transition hover:text-white" href="#o-mne">{locale.nav.about}</a>
-            <a className="transition hover:text-white" href="#shop">{locale.nav.guides}</a>
+            {showGuides && <a className="transition hover:text-white" href="#shop">{locale.nav.guides}</a>}
             <a className="transition hover:text-white" href="#kontakt">{locale.nav.contact}</a>
             <div className="ml-4 flex gap-3 text-xs tracking-[0.2em]">
               <button onClick={() => changeLanguage("cs")} className={`transition ${lang === "cs" ? "font-bold text-white" : "text-white/50 hover:text-white/80"}`}>CZ</button>
@@ -188,7 +191,7 @@ export default function App() {
                 ["#pece", locale.nav.care],
                 ["#tradice", locale.nav.tradition],
                 ["#o-mne", locale.nav.about],
-                ["#shop", locale.nav.guides],
+                ...(showGuides ? [["#shop", locale.nav.guides]] : []),
                 ["#kontakt", locale.nav.contact],
               ].map(([href, label]) => (
                 <a
@@ -231,9 +234,6 @@ export default function App() {
             <div className="animate-rise-two mt-8 max-w-none font-light text-[#f7e6d4]/90">
               <p className="whitespace-nowrap text-[clamp(0.72rem,1.45vw,1.25rem)] leading-relaxed">
                 {locale.hero.line1}
-              </p>
-              <p className="mt-2 whitespace-nowrap text-[clamp(0.68rem,1.25vw,1.1rem)] leading-relaxed text-[#f0d8c2]/85">
-                {locale.hero.line2}
               </p>
             </div>
             <div className="animate-rise-three mt-10 flex flex-col gap-4 sm:flex-row">
@@ -503,7 +503,7 @@ export default function App() {
         </div>
       </section>
 
-      <section id="shop" className="bg-[#fff9f0] px-5 py-24 sm:px-8 lg:px-12 lg:py-32">
+      {showGuides && <section id="shop" className="bg-[#fff9f0] px-5 py-24 sm:px-8 lg:px-12 lg:py-32">
         <div className="mx-auto max-w-7xl">
           <div className="flex flex-wrap items-end justify-between gap-6">
             <div className="max-w-2xl">
@@ -571,7 +571,7 @@ export default function App() {
             {locale.shop.note}
           </p>
         </div>
-      </section>
+      </section>}
 
       <section className="px-5 py-24 sm:px-8 lg:px-12 lg:py-32">
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1fr_1fr] lg:items-center">

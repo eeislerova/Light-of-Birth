@@ -11,7 +11,6 @@ export const t = {
     },
     hero: {
       line1: "Příprava k porodu, doprovod a poporodní péče v Praze, v okolí Kutné Hory a online.",
-      line2: "S úctou k českým kořenům a indické tradici.",
       btn1: "Domluvit úvodní setkání",
       btn2: "Prohlédnout péči",
       capacity: "Doprovázím jednu ženu měsíčně, abych pro vás mohla být skutečně k dispozici.",
@@ -45,7 +44,7 @@ export const t = {
     tradition: {
       eyebrow: "Tradice jako zázemí",
       title: "České kořeny, indická tradice",
-      p1: "Z českého prostředí si nesu blízkost k přírodě, bylinám, domovu a praktické péči. Indie mě učí vnímat těhotenství, porod a šestinedělí jako období, která si zaslouží čas, teplo, pozornost a úctu.",
+      p1: "Z českého prostředí si nesu blízkost k přírodě, bylinám, domovu a praktické péči. Indie a ájurvéda mě učí vnímat těhotenství, porod a šestinedělí jako období, která si zaslouží čas, teplo, pozornost a úctu.",
       p2: "Ve své práci nechávám oba přístupy přirozeně setkávat. Vždy s respektem k ženě, jejím potřebám a její vlastní cestě.",
       more: "Více o mně",
     },
@@ -108,7 +107,6 @@ export const t = {
     },
     hero: {
       line1: "Birth preparation, birth support, and postpartum care in Prague, the Kutná Hora region, and online.",
-      line2: "Honoring Czech roots and Indian tradition.",
       btn1: "Schedule a meeting",
       btn2: "View care packages",
       capacity: "I support one woman each month so that I can be truly available for you.",
@@ -142,7 +140,7 @@ export const t = {
     tradition: {
       eyebrow: "Tradition as a foundation",
       title: "Czech roots, Indian tradition",
-      p1: "From the Czech environment, I bring a closeness to nature, herbs, home, and practical care. India teaches me to perceive pregnancy, birth, and the postpartum period as times that deserve time, warmth, attention, and respect.",
+      p1: "From the Czech environment, I bring a closeness to nature, herbs, home, and practical care. India and Ayurveda teach me to see pregnancy, birth, and the postpartum period as times that deserve time, warmth, attention, and respect.",
       p2: "In my work, I let both approaches meet naturally. Always with respect for the woman, her needs, and her own path.",
       more: "More about me",
     },
