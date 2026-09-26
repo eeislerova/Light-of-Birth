@@ -1,7 +1,9 @@
-import { type ChangeEvent, type FormEvent, useState } from "react";
+import { type ChangeEvent, type FormEvent, useEffect, useRef, useState } from "react";
 import Wordmark from "./components/Wordmark";
 import { buyUrl, getProducts } from "./shopConfig";
 import { t, coursesData, servicesData, type Lang } from "./locales";
+import { legalDocuments, type LegalDocument } from "./legalContent";
+import { legalDocumentsEn } from "./legalContentEn";
 
 type InquiryForm = {
   name: string;
@@ -22,6 +24,70 @@ type Service = (typeof servicesData)[Lang][number];
 // Keep the guides ready for a future launch without showing the shop or its navigation links.
 const showGuides = false;
 
+function LegalPage({ document: legalDocument, lang }: { document: LegalDocument; lang: Lang }) {
+  const pageRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "auto" });
+    document.title = `${legalDocument.title} | Light of Birth`;
+    return () => { document.title = "Light of Birth"; };
+  }, [legalDocument]);
+
+  return (
+    <main className="min-h-screen bg-[#fff9f0] text-[#493226]">
+      <header className="border-b border-[#d8b797] px-5 py-6 sm:px-8 lg:px-12">
+        <div className="mx-auto flex max-w-5xl items-center justify-between gap-6">
+          <a href="#" aria-label={lang === "cs" ? "Light of Birth, úvodní stránka" : "Light of Birth, home page"}>
+            <Wordmark size="clamp(1.05rem, 2.4vw, 1.5rem)" inkClassName="text-[#493226]" accentClassName="text-[#b66d45]" />
+          </a>
+          <a href="#" className="text-sm font-semibold uppercase tracking-[0.14em] text-[#7a4628] underline decoration-[#d8b797] underline-offset-8">
+            {lang === "cs" ? "Zpět na hlavní stránku" : "Back to home page"}
+          </a>
+        </div>
+      </header>
+
+      <article ref={pageRef} className="mx-auto max-w-4xl px-5 py-16 sm:px-8 sm:py-24">
+        <p className="text-sm uppercase tracking-[0.24em] text-[#a0693f]">Light of Birth</p>
+        <h1 className="mt-4 font-serif text-5xl uppercase leading-tight tracking-[-0.03em] text-[#493226] sm:text-6xl">{legalDocument.title}</h1>
+        <div className="mt-10 space-y-2 border-b border-[#d8b797] pb-10 text-base leading-7 text-[#73513d]">
+          {legalDocument.intro.map((paragraph, index) => <p key={`${index}-${paragraph}`}>{paragraph}</p>)}
+        </div>
+
+        <div className="mt-12 space-y-12">
+          {legalDocument.sections.map((section, index) => (
+            <section key={`${index}-${section.heading ?? "text"}`}>
+              {section.heading ? <h2 className="font-serif text-3xl leading-tight text-[#493226]">{section.heading}</h2> : null}
+              <div className={`${section.heading ? "mt-5" : ""} space-y-4 text-base leading-8 text-[#73513d]`}>
+                {section.paragraphs.map((paragraph, paragraphIndex) => <p key={`${paragraphIndex}-${paragraph}`}>{paragraph}</p>)}
+                {section.bullets ? (
+                  <ul className="space-y-3 pl-1">
+                    {section.bullets.map((item) => (
+                      <li key={item} className="flex gap-3">
+                        <span className="mt-3 h-1.5 w-1.5 shrink-0 rounded-full bg-[#c58958]" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                ) : null}
+              </div>
+            </section>
+          ))}
+        </div>
+        <p className="mt-14 border-t border-[#d8b797] pt-6 text-sm font-semibold uppercase tracking-[0.12em] text-[#7a4628]">{legalDocument.updated}</p>
+      </article>
+
+      <footer className="bg-[#2f211b] px-5 py-8 text-sm text-[#d8c2ac] sm:px-8">
+        <nav className="mx-auto flex max-w-5xl flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-7" aria-label="Právní dokumenty">
+          <a className="underline underline-offset-4 hover:text-[#fff8ee]" href="#vymezeni-odpovednosti">{t[lang].footer.links.liability}</a>
+          <a className="underline underline-offset-4 hover:text-[#fff8ee]" href="#ochrana-osobnich-udaju">{t[lang].footer.links.privacy}</a>
+          <a className="underline underline-offset-4 hover:text-[#fff8ee]" href="#obchodni-podminky">{t[lang].footer.links.terms}</a>
+          <a className="underline underline-offset-4 hover:text-[#fff8ee]" href="#zasady-pouzivani-cookies">{t[lang].footer.links.cookies}</a>
+        </nav>
+      </footer>
+    </main>
+  );
+}
+
 export default function App() {
   const isComDomain = window.location.hostname.toLowerCase().endsWith(".com");
   const [lang, setLang] = useState<Lang>(() =>
@@ -35,6 +101,13 @@ export default function App() {
   const [openProduct, setOpenProduct] = useState<string | null>(null);
   const [aboutOpen, setAboutOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [hash, setHash] = useState(() => window.location.hash.slice(1));
+
+  useEffect(() => {
+    const updateHash = () => setHash(window.location.hash.slice(1));
+    window.addEventListener("hashchange", updateHash);
+    return () => window.removeEventListener("hashchange", updateHash);
+  }, []);
 
   // Initialize form with the translated default care string
   const [form, setForm] = useState<InquiryForm>({
@@ -87,6 +160,9 @@ export default function App() {
   const chooseService = (service: Service) => {
     setForm((current) => ({ ...current, care: service.title }));
   };
+
+  const legalDocument = (lang === "en" ? legalDocumentsEn : legalDocuments)[hash];
+  if (legalDocument) return <LegalPage document={legalDocument} lang={lang} />;
 
   const serviceDetail = (service: Service, detailId: string) => (
     <div id={detailId} className="grid gap-8 bg-[#fbf3e8] px-5 pb-10 pt-8 md:grid-cols-[0.35fr_0.65fr] md:px-8 md:pb-12">
@@ -687,6 +763,9 @@ export default function App() {
           </a>
           <a className="underline underline-offset-4 transition hover:text-[#fff8ee]" href="#obchodni-podminky">
             {locale.footer.links.terms}
+          </a>
+          <a className="underline underline-offset-4 transition hover:text-[#fff8ee]" href="#zasady-pouzivani-cookies">
+            {locale.footer.links.cookies}
           </a>
           <p className="text-[#b79c85] sm:ml-auto">© 2026 Light of Birth · {locale.footer.rights}</p>
         </div>
