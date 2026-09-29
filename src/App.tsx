@@ -669,9 +669,6 @@ export default function App() {
             </h2>
             <div className="mt-8 space-y-3 text-lg leading-8 text-[#73513d]">
               <a className="inline-block text-[#7a4628] underline decoration-[#d8b797] underline-offset-8 transition hover:text-[#493226]" href={`tel:+420733383101`}>+420 733 383 101</a>
-              <div>
-                <a className="inline-block text-[#7a4628] underline decoration-[#d8b797] underline-offset-8 transition hover:text-[#493226]" href={`mailto:${contactEmail}`}>{contactEmail}</a>
-              </div>
             </div>
           </div>
 
