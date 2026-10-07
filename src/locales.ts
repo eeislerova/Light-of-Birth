@@ -82,7 +82,9 @@ export const t = {
       message: "Zpráva",
       messagePlaceholder: "Termín porodu, místo, co je pro vás důležité...",
       btn: "Domluvit úvodní setkání",
-      success: "Otevřel se e-mailový klient s připravenou zprávou.",
+      sending: "Odesílám...",
+      success: "Děkuji, zpráva byla odeslána. Ozvu se vám co nejdříve.",
+      error: "Zprávu se nepodařilo odeslat. Zkuste to prosím znovu nebo mi napište přímo.",
       subject: "Poptávka péče Light of Birth",
     },
     footer: {
@@ -179,7 +181,9 @@ export const t = {
       message: "Message",
       messagePlaceholder: "Due date, location, what is important to you...",
       btn: "Schedule a meeting",
-      success: "Your email client has opened with a drafted message.",
+      sending: "Sending...",
+      success: "Thank you, your message has been sent. I will get back to you as soon as possible.",
+      error: "Your message could not be sent. Please try again or email me directly.",
       subject: "Light of Birth Inquiry",
     },
     footer: {

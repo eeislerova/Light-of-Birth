@@ -10,6 +10,7 @@ type InquiryForm = {
   email: string;
   care: string;
   message: string;
+  company: string;
 };
 
 const initialForm: InquiryForm = {
@@ -17,7 +18,10 @@ const initialForm: InquiryForm = {
   email: "",
   care: "",
   message: "",
+  company: "",
 };
+
+type SubmitStatus = "idle" | "submitting" | "success" | "error";
 
 type Service = (typeof servicesData)[Lang][number];
 
@@ -114,7 +118,8 @@ export default function App() {
     ...initialForm,
     care: locale.contact.serviceDefault,
   });
-  const [submitted, setSubmitted] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<SubmitStatus>("idle");
+  const formStartedAt = useRef(Date.now());
 
   const changeLanguage = (nextLang: Lang) => {
     setForm((current) => {
@@ -137,24 +142,32 @@ export default function App() {
       >
     ) => {
       setForm((current) => ({ ...current, [field]: event.target.value }));
-      setSubmitted(false);
+      setSubmitStatus("idle");
     };
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setSubmitStatus("submitting");
 
-    const body = [
-      `${locale.contact.name}: ${form.name}`,
-      `${locale.contact.email}: ${form.email}`,
-      `${locale.contact.service}: ${form.care}`,
-      "",
-      form.message,
-    ].join("\n");
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...form,
+          lang,
+          startedAt: formStartedAt.current,
+        }),
+      });
 
-    window.location.href = `mailto:${contactEmail}?subject=${encodeURIComponent(
-      locale.contact.subject
-    )}&body=${encodeURIComponent(body)}`;
-    setSubmitted(true);
+      if (!response.ok) throw new Error("Contact form submission failed");
+
+      setForm({ ...initialForm, care: locale.contact.serviceDefault });
+      formStartedAt.current = Date.now();
+      setSubmitStatus("success");
+    } catch {
+      setSubmitStatus("error");
+    }
   };
 
   const chooseService = (service: Service) => {
@@ -673,6 +686,16 @@ export default function App() {
           </div>
 
           <form onSubmit={handleSubmit} className="rounded-[2rem] bg-[#fbf3e8] p-6 shadow-[0_24px_80px_rgba(75,49,37,0.14)] sm:p-8 lg:p-10">
+            <label className="absolute -left-[9999px]" aria-hidden="true">
+              Company
+              <input
+                name="company"
+                tabIndex={-1}
+                autoComplete="off"
+                value={form.company}
+                onChange={updateField("company")}
+              />
+            </label>
             <div className="grid gap-6 sm:grid-cols-2">
               <label className="space-y-3 text-sm uppercase tracking-[0.18em] text-[#8a5e42]">
                 {locale.contact.name}
@@ -723,12 +746,16 @@ export default function App() {
             <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
               <button
                 type="submit"
-                className="rounded-full bg-[#493226] px-8 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-[#fff8ee] transition duration-500 hover:-translate-y-1 hover:bg-[#6b442f]"
+                disabled={submitStatus === "submitting"}
+                className="rounded-full bg-[#493226] px-8 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-[#fff8ee] transition duration-500 hover:-translate-y-1 hover:bg-[#6b442f] disabled:cursor-wait disabled:opacity-60"
               >
-                {locale.contact.btn}
+                {submitStatus === "submitting" ? locale.contact.sending : locale.contact.btn}
               </button>
-              {submitted ? (
+              {submitStatus === "success" ? (
                 <p className="text-sm leading-6 text-[#73513d]">{locale.contact.success}</p>
+              ) : null}
+              {submitStatus === "error" ? (
+                <p className="text-sm leading-6 text-[#8c3f32]" role="alert">{locale.contact.error}</p>
               ) : null}
             </div>
           </form>
