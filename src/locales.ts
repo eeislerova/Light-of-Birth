@@ -180,7 +180,7 @@ export const t = {
       serviceDefault: "I'm not sure, I need advice",
       message: "Message",
       messagePlaceholder: "Due date, location, what is important to you...",
-      btn: "Schedule a meeting",
+      btn: "Send",
       sending: "Sending...",
       success: "Thank you, your message has been sent. I will get back to you as soon as possible.",
       error: "Your message could not be sent. Please try again or email me directly.",
