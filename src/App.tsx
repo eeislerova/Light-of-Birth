@@ -682,9 +682,9 @@ export default function App() {
             </h2>
             <div className="mt-8 space-y-3 text-lg leading-8 text-[#73513d]">
               <a className="inline-block text-[#7a4628] underline decoration-[#d8b797] underline-offset-8 transition hover:text-[#493226]" href={`tel:+420733383101`}>+420 733 383 101</a>
-              {isComDomain ? (
-                <p className="text-[#7a4628]">contact@lightofbirth.com</p>
-              ) : null}
+              <p className="text-[#7a4628]">
+                {isComDomain ? "contact@lightofbirth.com" : "kontakt@lightofbirth.cz"}
+              </p>
             </div>
           </div>
 
