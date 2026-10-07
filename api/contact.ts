@@ -66,8 +66,10 @@ export default async function handler(request: ContactRequest, response: Contact
     return response.status(400).json({ error: "Invalid form data" });
   }
 
-  const apiKey = process.env.RESEND_API_KEY;
   const isCzechDomain = origin === "https://lightofbirth.cz" || origin === "https://www.lightofbirth.cz";
+  const apiKey = isCzechDomain
+    ? process.env.RESEND_API_KEY_CZ ?? process.env.RESEND_API_KEY
+    : process.env.RESEND_API_KEY_COM ?? process.env.RESEND_API_KEY;
   const from = isCzechDomain
     ? process.env.CONTACT_FROM_EMAIL_CZ ?? process.env.CONTACT_FROM_EMAIL
     : process.env.CONTACT_FROM_EMAIL_COM ?? process.env.CONTACT_FROM_EMAIL;
