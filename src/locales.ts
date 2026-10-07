@@ -81,7 +81,7 @@ export const t = {
       serviceDefault: "Nejsem si jistá, potřebuji se poradit",
       message: "Zpráva",
       messagePlaceholder: "Termín porodu, místo, co je pro vás důležité...",
-      btn: "Domluvit úvodní setkání",
+      btn: "Odeslat",
       sending: "Odesílám...",
       success: "Děkuji, zpráva byla odeslána. Ozvu se vám co nejdříve.",
       error: "Zprávu se nepodařilo odeslat. Zkuste to prosím znovu nebo mi napište přímo.",
