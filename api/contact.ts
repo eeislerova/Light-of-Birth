@@ -67,7 +67,10 @@ export default async function handler(request: ContactRequest, response: Contact
   }
 
   const apiKey = process.env.RESEND_API_KEY;
-  const from = process.env.CONTACT_FROM_EMAIL;
+  const isCzechDomain = origin === "https://lightofbirth.cz" || origin === "https://www.lightofbirth.cz";
+  const from = isCzechDomain
+    ? process.env.CONTACT_FROM_EMAIL_CZ ?? process.env.CONTACT_FROM_EMAIL
+    : process.env.CONTACT_FROM_EMAIL_COM ?? process.env.CONTACT_FROM_EMAIL;
   const to = process.env.CONTACT_TO_EMAIL ?? "eeislerova@gmail.com";
 
   if (!apiKey || !from) {
