@@ -49,7 +49,7 @@ export const t = {
       more: "Více o mně",
     },
     about: {
-      p1: "Jsem dula a k porodům doprovázím především v porodnicích v Praze a v okolí Kutné Hory.",
+      p1: "K porodům doprovázím především v porodnicích v Praze a okolí Kutné Hory.",
       p2Lead: "Doprovázím pouze jednu ženu měsíčně",
       p2: ", abych měla dostatek prostoru pro individuální péči před porodem, během něj i v období po narození miminka.",
       p3: "Ve své práci propojuji praktickou přípravu k porodu, práci s tělem a dechem, péči rebozem a principy tradiční české bylinné a ájurvédské poporodní péče.",
@@ -148,7 +148,7 @@ export const t = {
       more: "More about me",
     },
     about: {
-      p1: "I am a doula and primarily attend births at maternity hospitals in Prague and the Kutná Hora area.",
+      p1: "I primarily attend births at maternity hospitals in Prague and the Kutná Hora area.",
       p2Lead: "I support only one woman each month",
       p2: ", so that I have enough space to provide individual care before and during birth, as well as after the baby is born.",
       p3: "In my work, I combine practical birth preparation, body and breath work, rebozo care, and the principles of traditional Czech herbal and Ayurvedic postpartum care.",
