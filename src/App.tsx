@@ -531,6 +531,39 @@ export default function App() {
         </div>
       </section>
 
+      <section id="byliny-a-vyziva" className="border-y border-[#dfc9b4]/70 bg-[linear-gradient(135deg,#f7f0e5_0%,#efe3d3_100%)] px-5 py-14 sm:px-8 lg:px-12 lg:py-16">
+        <div className="mx-auto grid max-w-7xl gap-9 lg:grid-cols-[0.78fr_1.22fr] lg:items-center lg:gap-16">
+          <div className="max-w-lg lg:pl-4">
+            <p className="text-base leading-7 text-[#73513d]">{locale.nourishment.text}</p>
+          </div>
+
+          <div className="grid h-[21rem] grid-cols-[1.12fr_0.88fr] grid-rows-2 gap-2.5 sm:h-[24rem] sm:gap-3">
+            <figure className="group relative row-span-2 overflow-hidden rounded-[1.75rem_0.75rem_0.75rem_1.75rem] bg-[#ddc9b4] shadow-[0_18px_48px_rgba(75,49,37,0.14)]">
+              <img
+                src="/images/draft-care/st-johns-wort-oil.jpg"
+                alt={locale.nourishment.oil}
+                className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.025]"
+                style={{ filter: "saturate(1.08) contrast(.97) brightness(1.03) sepia(.1)" }}
+                loading="lazy"
+                decoding="async"
+              />
+              <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#3f2b21]/75 to-transparent" aria-hidden="true" />
+              <figcaption className="absolute inset-x-4 bottom-4 text-[#fffaf2] sm:inset-x-5 sm:bottom-5">
+                <span className="block font-serif text-xl sm:text-2xl">{locale.nourishment.oil}</span>
+                <span className="mt-0.5 hidden text-[0.65rem] uppercase tracking-[0.14em] text-[#fffaf2]/85 sm:block">{locale.nourishment.oilDetail}</span>
+              </figcaption>
+            </figure>
+            <div className="grid min-h-0 grid-cols-2 gap-2.5 sm:gap-3">
+              <img src="/images/draft-care/nourishing-bowl.jpg" alt={locale.nourishment.food} className="h-full min-h-0 w-full rounded-[0.75rem] object-cover shadow-[0_10px_30px_rgba(75,49,37,0.1)]" style={{ filter: "saturate(1.08) contrast(.97) brightness(1.03) sepia(.1)" }} loading="lazy" decoding="async" />
+              <img src="/images/draft-care/rosehips.jpg" alt={locale.nourishment.rosehipsAlt} className="h-full min-h-0 w-full rounded-[0.75rem_1.75rem_0.75rem_0.75rem] object-cover shadow-[0_10px_30px_rgba(75,49,37,0.1)]" style={{ filter: "saturate(1.08) contrast(.97) brightness(1.03) sepia(.1)" }} loading="lazy" decoding="async" />
+            </div>
+            <div className="min-h-0 overflow-hidden rounded-[0.75rem_0.75rem_1.75rem_0.75rem] bg-[#ddc9b4] shadow-[0_10px_30px_rgba(75,49,37,0.1)]">
+              <img src="/images/draft-care/warm-rice-vegetables.jpg" alt={locale.nourishment.food} className="h-full w-full object-cover object-[center_38%]" style={{ filter: "saturate(1.08) contrast(.97) brightness(1.03) sepia(.1)" }} loading="lazy" decoding="async" />
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="o-mne" className="bg-[#fff9f0] px-5 py-24 sm:px-8 lg:px-12 lg:py-32">
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-start lg:gap-16">

@@ -66,6 +66,16 @@ export const t = {
       btn: "Stáhnout",
       note: "Průvodci jsou digitální produkty ve formátu PDF. Po dokončení objednávky a zaplacení obdržíte odkaz ke stažení na svůj e-mail.",
     },
+    nourishment: {
+      eyebrow: "Byliny a výživa",
+      title: "Péče, která zahřívá a vyživuje.",
+      text: "Byliny, oleje a výživné domácí jídlo mohou být podle domluvy jemnou součástí poporodní péče. Vycházím z ročního období, vašich potřeb a z toho, co vám v šestinedělí přináší teplo, klid a pocit bezpečí.",
+      oil: "Třezalkový olej",
+      oilDetail: "Bylinná péče připravovaná s pozorností",
+      food: "Domácí jídlo",
+      foodDetail: "Čerstvé, barevné a výživné",
+      rosehipsAlt: "Šípky v zahradě",
+    },
     location: {
       title: "Praha, okolí Kutné Hory a laskavá online podpora.",
       text: "Osobní setkání probíhají zejména v Praze a okolí Kutné Hory. Přípravu, integraci porodního příběhu a část poporodní péče je možné domluvit také online nebo jako citlivou kombinaci setkání.",
@@ -164,6 +174,16 @@ export const t = {
       question: "Have a question about a product?",
       btn: "Download",
       note: "The guides are digital products in PDF format. After completing your order and payment, you will receive a download link via email.",
+    },
+    nourishment: {
+      eyebrow: "Herbs and nourishment",
+      title: "Care that brings warmth and nourishment.",
+      text: "Herbs, oils, and nourishing homemade food may, by arrangement, become a gentle part of postpartum care. I draw on the season, your individual needs, and what brings you warmth, calm, and a sense of safety during the postpartum period.",
+      oil: "St John’s wort oil",
+      oilDetail: "Herbal care prepared with attention",
+      food: "Homemade food",
+      foodDetail: "Fresh, colourful, and nourishing",
+      rosehipsAlt: "Rosehips in the garden",
     },
     location: {
       title: "Prague, Kutná Hora region, and kind online support.",
