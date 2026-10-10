@@ -94,9 +94,12 @@ function LegalPage({ document: legalDocument, lang }: { document: LegalDocument;
 
 export default function App() {
   const isComDomain = window.location.hostname.toLowerCase().endsWith(".com");
-  const [lang, setLang] = useState<Lang>(() =>
-    isComDomain ? "en" : "cs"
-  );
+  const [lang, setLang] = useState<Lang>(() => {
+    const requestedLanguage = new URLSearchParams(window.location.search).get("lang");
+    return requestedLanguage === "cs" || requestedLanguage === "en"
+      ? requestedLanguage
+      : isComDomain ? "en" : "cs";
+  });
   const locale = t[lang];
   const domainEnding = isComDomain ? "com" : "cz";
   const contactEmail = `${lang === "cs" ? "kontakt" : "contact"}@lightofbirth.${domainEnding}`;
@@ -112,6 +115,79 @@ export default function App() {
     window.addEventListener("hashchange", updateHash);
     return () => window.removeEventListener("hashchange", updateHash);
   }, []);
+
+  useEffect(() => {
+    const preferredDomain = lang === "cs" ? "https://www.lightofbirth.cz" : "https://www.lightofbirth.com";
+    const canonicalUrl = `${preferredDomain}/?lang=${lang}`;
+    const setMeta = (selector: string, attribute: "name" | "property", key: string, content: string) => {
+      let element = document.head.querySelector<HTMLMetaElement>(selector);
+      if (!element) {
+        element = document.createElement("meta");
+        element.setAttribute(attribute, key);
+        document.head.appendChild(element);
+      }
+      element.content = content;
+    };
+    const setLink = (rel: string, href: string, hrefLang?: string) => {
+      const selector = hrefLang ? `link[rel="${rel}"][hreflang="${hrefLang}"]` : `link[rel="${rel}"]:not([hreflang])`;
+      let element = document.head.querySelector<HTMLLinkElement>(selector);
+      if (!element) {
+        element = document.createElement("link");
+        element.rel = rel;
+        if (hrefLang) element.hreflang = hrefLang;
+        document.head.appendChild(element);
+      }
+      element.href = href;
+    };
+
+    document.documentElement.lang = lang;
+    document.title = locale.seo.title;
+    setMeta('meta[name="description"]', "name", "description", locale.seo.description);
+    setMeta('meta[property="og:title"]', "property", "og:title", locale.seo.title);
+    setMeta('meta[property="og:description"]', "property", "og:description", locale.seo.description);
+    setMeta('meta[property="og:url"]', "property", "og:url", canonicalUrl);
+    setMeta('meta[property="og:locale"]', "property", "og:locale", lang === "cs" ? "cs_CZ" : "en_GB");
+    setMeta('meta[name="twitter:title"]', "name", "twitter:title", locale.seo.title);
+    setMeta('meta[name="twitter:description"]', "name", "twitter:description", locale.seo.description);
+    setLink("canonical", canonicalUrl);
+    setLink("alternate", "https://www.lightofbirth.cz/?lang=cs", "cs");
+    setLink("alternate", "https://www.lightofbirth.com/?lang=en", "en");
+    setLink("alternate", "https://www.lightofbirth.com/?lang=en", "x-default");
+
+    let structuredData = document.getElementById("light-of-birth-structured-data") as HTMLScriptElement | null;
+    if (!structuredData) {
+      structuredData = document.createElement("script");
+      structuredData.id = "light-of-birth-structured-data";
+      structuredData.type = "application/ld+json";
+      document.head.appendChild(structuredData);
+    }
+    structuredData.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": ["Person", "ProfessionalService"],
+          "@id": `${preferredDomain}/#eliska-eislerova`,
+          name: "Eliška S. Eislerová",
+          alternateName: "Light of Birth",
+          jobTitle: lang === "cs" ? "Dula" : "Doula",
+          url: canonicalUrl,
+          telephone: "+420733383101",
+          email: contactEmail,
+          image: `${preferredDomain}/images/eliska-o-mne-new.jpg`,
+          areaServed: ["Praha", "Kutná Hora", "Středočeský kraj"],
+          sameAs: ["https://www.instagram.com/lightofbirth/", "https://www.linkedin.com/in/eli%C5%A1ka-eislerov%C3%A1-15b700217/"],
+        },
+        {
+          "@type": "FAQPage",
+          mainEntity: locale.faq.items.map((item) => ({
+            "@type": "Question",
+            name: item.question,
+            acceptedAnswer: { "@type": "Answer", text: item.answer },
+          })),
+        },
+      ],
+    });
+  }, [contactEmail, lang, locale]);
 
   // Initialize form with the translated default care string
   const [form, setForm] = useState<InquiryForm>({
@@ -132,6 +208,9 @@ export default function App() {
       };
     });
     setLang(nextLang);
+    const nextUrl = new URL(window.location.href);
+    nextUrl.searchParams.set("lang", nextLang);
+    window.history.replaceState({}, "", nextUrl);
   };
 
   const updateField =
@@ -558,7 +637,7 @@ export default function App() {
               <img src="/images/draft-care/rosehips.jpg" alt={locale.nourishment.rosehipsAlt} className="h-full min-h-0 w-full rounded-[0.75rem_1.75rem_0.75rem_0.75rem] object-cover shadow-[0_10px_30px_rgba(75,49,37,0.1)]" style={{ filter: "saturate(1.08) contrast(.97) brightness(1.03) sepia(.1)" }} loading="lazy" decoding="async" />
             </div>
             <div className="min-h-0 overflow-hidden rounded-[0.75rem_0.75rem_1.75rem_0.75rem] bg-[#ddc9b4] shadow-[0_10px_30px_rgba(75,49,37,0.1)]">
-              <img src="/images/draft-care/warm-rice-vegetables.jpg" alt={locale.nourishment.food} className="h-full w-full object-cover object-[center_38%]" style={{ filter: "saturate(1.08) contrast(.97) brightness(1.03) sepia(.1)" }} loading="lazy" decoding="async" />
+              <img src="/images/draft-care/oats-fruit-nuts.jpg" alt={locale.nourishment.food} className="h-full w-full object-cover object-center" style={{ filter: "saturate(1.06) contrast(.97) brightness(1.03) sepia(.08)" }} loading="lazy" decoding="async" />
             </div>
           </div>
         </div>
@@ -569,9 +648,11 @@ export default function App() {
           <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-start lg:gap-16">
             <div>
               <img
-                src="/images/eliska-o-mne.jpg"
-                alt="Portrét Elišky S."
-                className="aspect-[4/5] w-full rounded-2xl object-cover object-center"
+                src="/images/eliska-o-mne-new.jpg"
+                alt={lang === "cs" ? "Dula Eliška S. Eislerová" : "Doula Eliška S. Eislerová"}
+                className="aspect-[4/5] w-full rounded-2xl object-cover object-[48%_center] shadow-[0_18px_55px_rgba(75,49,37,0.12)]"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <div className="text-lg leading-8 text-[#73513d]">
@@ -703,6 +784,23 @@ export default function App() {
           <p className="text-lg leading-8 text-[#73513d]">
             {locale.location.text}
           </p>
+        </div>
+      </section>
+
+      <section className="border-y border-[#dfc9b4] bg-[#f7efe4] px-5 py-20 sm:px-8 lg:px-12 lg:py-24">
+        <div className="mx-auto max-w-7xl">
+          <div className="max-w-3xl">
+            <p className="text-sm uppercase tracking-[0.24em] text-[#a0693f]">{locale.faq.eyebrow}</p>
+            <h2 className="mt-4 font-serif text-5xl leading-tight tracking-[-0.04em] text-[#493226] sm:text-6xl">{locale.faq.title}</h2>
+          </div>
+          <div className="mt-12 grid gap-x-12 gap-y-8 lg:grid-cols-2">
+            {locale.faq.items.map((item) => (
+              <article key={item.question} className="border-t border-[#cfa989] pt-6">
+                <h3 className="font-serif text-2xl leading-snug text-[#493226]">{item.question}</h3>
+                <p className="mt-3 text-base leading-7 text-[#73513d]">{item.answer}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 

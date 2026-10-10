@@ -2,6 +2,10 @@ export type Lang = "cs" | "en";
 
 export const t = {
   cs: {
+    seo: {
+      title: "Dula Praha a Kutná Hora | Eliška S. Eislerová",
+      description: "Hledáte dulu v Praze nebo na Kutnohorsku? Nabízím přípravu k porodu, citlivý doprovod k porodu a praktickou poporodní péči přímo pro vás.",
+    },
     nav: {
       care: "Péče",
       tradition: "Tradice",
@@ -10,20 +14,20 @@ export const t = {
       contact: "Kontakt",
     },
     hero: {
-      line1: "Příprava k porodu, doprovod a poporodní péče v Praze, v okolí Kutné Hory a online.",
+      line1: "Citlivá příprava k porodu, doprovod a poporodní péče pro vás v Praze, na Kutnohorsku i online.",
       btn1: "Domluvit úvodní setkání",
       btn2: "Prohlédnout péči",
       capacity: "Doprovázím jednu ženu měsíčně, abych pro vás mohla být skutečně k dispozici.",
     },
     space: {
       eyebrow: "O prostoru péče",
-      title: "Jemná opora od prvních otázek po šestinedělí.",
-      text: "Light of Birth vás zve do prostoru péče, ve kterém můžete zpomalit, cítit se bezpečně a s důvěrou se připravovat na těhotenství, porod i čas po něm. Eliška S. vás provází s respektem k vašim potřebám a citlivě propojuje praktickou přípravu s péčí o tělo, emoce a osobní prožitek. Dula nenahrazuje zdravotnickou péči; doplňuje ji laskavou přítomností, kontinuitou a pozorností věnovanou právě vám.",
+      title: "Nemusíte na porod ani šestinedělí zůstávat sama.",
+      text: "Můžete se ptát, zpomalit a připravovat se způsobem, který dává smysl právě vám. Nabídnu vám srozumitelné informace, praktickou přípravu a klidnou přítomnost před porodem, během něj i po narození miminka. Vaše potřeby, hranice a rozhodnutí zůstávají vždy v centru naší spolupráce. Dula nenahrazuje zdravotnickou péči; doplňuje ji kontinuitou, lidskou oporou a časem věnovaným vám.",
     },
     care: {
       eyebrow: "Nabídka",
-      title: "Péče v Praze a na Kutnohorsku",
-      text: "Každá spolupráce vychází z vašich individuálních potřeb, fáze, ve které se právě nacházíte, i míry podpory, kterou si přejete. Vyberte si balíček a rozklikněte jeho celý obsah, kde najdete také cenu.",
+      title: "Vyberte si podporu, kterou právě potřebujete",
+      text: "Možná hledáte jistotu před porodem, známou tvář k porodu nebo péči, která vás podrží i v šestinedělí. Prohlédněte si jednotlivé možnosti; u každé najdete jasný rozsah i cenu. Pokud si nejste jistá, společně vybereme cestu, která vám bude skutečně sedět.",
       note: "Osobně v Praze a na Kutnohorsku · vybrané konzultace také online",
       detailLabel: "Podrobný obsah péče",
       investment: "Investice",
@@ -38,24 +42,24 @@ export const t = {
       extendedTitle: "Rozšířená kontinuální péče",
       extendedText: "Pro ženy, které si přejí jednu průvodkyni během delší části své cesty, nabízím také rozšířené formy péče propojující těhotenství, porod a šestinedělí.",
       premiumLabel: "Intenzivní individuální péče",
-      cta: "Domluvit seznamovací setkání, 30 minut zdarma",
-      ctaNote: "Setkání může proběhnout online nebo podle domluvy osobně v Praze či na Kutnohorsku.",
+      cta: "Domluvit si 30 minut zdarma",
+      ctaNote: "Nezávazně se poznáme, probereme vaše přání a zjistíme, zda je vám moje podpora příjemná. Online nebo osobně podle domluvy.",
     },
     tradition: {
       eyebrow: "Tradice jako zázemí",
       title: "České kořeny, indická tradice",
-      p1: "Z českého prostředí si nesu blízkost k přírodě, bylinám, domovu a praktické péči. Indie a ájurvéda mě učí vnímat těhotenství, porod a šestinedělí jako období, která si zaslouží čas, teplo, pozornost a úctu.",
-      p2: "Ve své práci nechávám oba přístupy přirozeně setkávat. Vždy s respektem k ženě, jejím potřebám a její vlastní cestě.",
+      p1: "V péči o vás propojuji českou blízkost k přírodě, bylinám a domovu s inspirací z ájurvédy. Těhotenství, porod i šestinedělí vnímám jako citlivé období, ve kterém si zasloužíte čas, teplo, pozornost a respekt.",
+      p2: "Z tradic vybírám jen to, co je pro vás bezpečné, srozumitelné a příjemné. Nic vám nevnucuji — společně hledáme podobu péče, ve které se můžete cítit sama sebou.",
       more: "Více o mně",
     },
     about: {
-      p1: "K porodům doprovázím především v porodnicích v Praze a okolí Kutné Hory.",
+      p1: "K porodu vás mohu doprovodit především v porodnicích v Praze a v okolí Kutné Hory.",
       p2Lead: "Doprovázím pouze jednu ženu měsíčně",
       p2: ", abych měla dostatek prostoru pro individuální péči před porodem, během něj i v období po narození miminka.",
-      p3: "Ve své práci propojuji praktickou přípravu k porodu, práci s tělem a dechem, péči rebozem a principy tradiční české bylinné a ájurvédské poporodní péče.",
-      p4: "Základem mé péče jsou ale vždy vaše vlastní potřeby a přání a to, co je pro vás v tomto období skutečně důležité.",
+      p3: "Při přípravě a doprovodu využívám práci s tělem a dechem, rebozo i principy tradiční české bylinné a ájurvédské poporodní péče.",
+      p4: "Metody jsou ale až na druhém místě. Nejdůležitější jste vy — vaše přání, vaše hranice a to, co vám v danou chvíli přináší pocit bezpečí.",
       eyebrow: "O mně",
-      title: "Péče s prostorem právě pro vás.",
+      title: "Budu vedle vás. S respektem a bez hodnocení.",
       more: "Více o mně",
       courses: "Vzdělání a kurzy",
     },
@@ -69,7 +73,7 @@ export const t = {
     nourishment: {
       eyebrow: "Byliny a výživa",
       title: "Péče, která zahřívá a vyživuje.",
-      text: "Byliny, oleje a výživné domácí jídlo mohou být podle domluvy jemnou součástí poporodní péče. Vycházím z ročního období, vašich potřeb a z toho, co vám v šestinedělí přináší teplo, klid a pocit bezpečí.",
+      text: "V šestinedělí nemusíte všechno zvládat sama. Podle domluvy vám mohu přivézt nebo připravit teplé domácí jídlo a nabídnout jemnou péči s bylinami či oleji. Vždy vycházím z vašich potřeb, zdravotního stavu, ročního období a z toho, co je vám příjemné.",
       oil: "Třezalkový olej",
       oilDetail: "Bylinná péče připravovaná s pozorností",
       food: "Domácí jídlo",
@@ -77,12 +81,12 @@ export const t = {
       rosehipsAlt: "Šípky v zahradě",
     },
     location: {
-      title: "Praha, okolí Kutné Hory a laskavá online podpora.",
-      text: "Osobní setkání probíhají zejména v Praze a okolí Kutné Hory. Přípravu, integraci porodního příběhu a část poporodní péče je možné domluvit také online nebo jako citlivou kombinaci setkání.",
+      title: "Osobně v Praze a na Kutnohorsku. Online tam, kde jste vy.",
+      text: "Osobně se můžeme potkat v Praze nebo v okolí Kutné Hory. Příprava k porodu, konzultace a integrace porodního příběhu mohou proběhnout také online. Společně zvolíme podobu setkání, která pro vás bude praktická a bezpečná.",
     },
     contact: {
       eyebrow: "Kontakt",
-      title: "Napište si o péči.",
+      title: "Napište mi, co právě potřebujete.",
       name: "Jméno",
       namePlaceholder: "Vaše jméno",
       email: "E-mail",
@@ -96,6 +100,16 @@ export const t = {
       success: "Děkuji, zpráva byla odeslána. Ozvu se vám co nejdříve.",
       error: "Zprávu se nepodařilo odeslat. Zkuste to prosím znovu nebo mi napište přímo.",
       subject: "Poptávka péče Light of Birth",
+    },
+    faq: {
+      eyebrow: "Časté otázky",
+      title: "Možná se právě ptáte…",
+      items: [
+        { question: "Kdy je nejlepší dulu oslovit?", answer: "Klidně už na začátku těhotenství, nejčastěji ale ženy píší během druhého trimestru. Pokud je váš termín blízko, ozvěte se i tak — společně ověříme, zda mám kapacitu a jak vám mohu pomoci." },
+        { question: "Může být u porodu se mnou i partner?", answer: "Ano. Partnera nenahrazuji; pomáhám vám oběma lépe se zorientovat, vytvořit klidnější prostředí a najít způsoby podpory, které jsou vám příjemné." },
+        { question: "Ve kterých porodnicích doprovázíte?", answer: "Doprovázím především v porodnicích v Praze a v okolí Kutné Hory. Konkrétní místo i dojezd vždy probereme při úvodním rozhovoru." },
+        { question: "Co když nevím, kterou péči vybrat?", answer: "To je úplně v pořádku. Napište mi pár vět o své situaci a na bezplatném úvodním setkání společně zjistíme, jaká míra podpory vám bude dávat smysl." },
+      ],
     },
     footer: {
       disclaimer1: "Cestovné mimo Prahu se vždy účtuje podle vzdálenosti.",
@@ -111,6 +125,10 @@ export const t = {
     },
   },
   en: {
+    seo: {
+      title: "English-speaking Doula in Prague | Eliška S. Eislerová",
+      description: "Looking for an English-speaking doula in Prague or Kutná Hora? Personal birth preparation, continuous birth support, and thoughtful postpartum care.",
+    },
     nav: {
       care: "Care",
       tradition: "Tradition",
@@ -119,20 +137,20 @@ export const t = {
       contact: "Contact",
     },
     hero: {
-      line1: "Birth preparation, birth support, and postpartum care in Prague, the Kutná Hora region, and online.",
+      line1: "Personal birth preparation, continuous birth support, and postpartum care for you in Prague, Kutná Hora, and online.",
       btn1: "Schedule a meeting",
       btn2: "View care packages",
       capacity: "I support one woman each month so that I can be truly available for you.",
     },
     space: {
       eyebrow: "About the care space",
-      title: "Gentle support from the first questions through postpartum.",
-      text: "Light of Birth invites you into a space of care where you can slow down, feel safe, and prepare with confidence for pregnancy, birth, and the time that follows. Eliška S. supports you with respect for your needs, sensitively weaving practical preparation together with care for your body, emotions, and personal experience. A doula does not replace medical care; she complements it with a compassionate presence, continuity, and attention devoted specifically to you.",
+      title: "You do not have to move through birth and postpartum alone.",
+      text: "You can ask questions, slow down, and prepare in a way that feels right for you. I offer clear information, practical preparation, and a calm presence before, during, and after birth. Your needs, boundaries, and decisions remain at the heart of our work together. A doula does not replace medical care; she complements it with continuity, human support, and time devoted to you.",
     },
     care: {
       eyebrow: "Services",
-      title: "Care in Prague and Kutná Hora",
-      text: "Every collaboration is based on your individual needs, your current phase, and the level of support you desire. Select a package to see its full content and pricing.",
+      title: "Choose the support you need right now",
+      text: "You may be looking for confidence before birth, a familiar face beside you during labour, or care that continues into postpartum. Explore each option for a clear description and price. If you are unsure, we can find the kind of support that genuinely fits you together.",
       note: "In person in Prague and Kutná Hora · selected consultations also online",
       detailLabel: "Detailed care content",
       investment: "Investment",
@@ -147,24 +165,24 @@ export const t = {
       extendedTitle: "Extended continuous care",
       extendedText: "For women who would like one guide through a longer part of their journey, I also offer extended forms of care connecting pregnancy, birth, and the postpartum period.",
       premiumLabel: "Intensive individual care",
-      cta: "Book an introductory meeting, 30 minutes free",
-      ctaNote: "The meeting can take place online or, by arrangement, in person in Prague or the Kutná Hora region.",
+      cta: "Book a free 30-minute conversation",
+      ctaNote: "We can meet without obligation, talk about your wishes, and see whether my support feels right for you — online or in person by arrangement.",
     },
     tradition: {
       eyebrow: "Tradition as a foundation",
       title: "Czech roots, Indian tradition",
-      p1: "From the Czech environment, I bring a closeness to nature, herbs, home, and practical care. India and Ayurveda teach me to see pregnancy, birth, and the postpartum period as times that deserve time, warmth, attention, and respect.",
-      p2: "In my work, I let both approaches meet naturally. Always with respect for the woman, her needs, and her own path.",
+      p1: "In caring for you, I bring together the Czech closeness to nature, herbs, and home with inspiration from Ayurveda. I see pregnancy, birth, and postpartum as sensitive times in which you deserve warmth, attention, time, and respect.",
+      p2: "I use only what feels safe, clear, and supportive to you. Nothing is imposed — together, we shape care in which you can remain fully yourself.",
       more: "More about me",
     },
     about: {
-      p1: "I primarily attend births at maternity hospitals in Prague and the Kutná Hora area.",
+      p1: "I can accompany you to birth primarily in maternity hospitals in Prague and the Kutná Hora area.",
       p2Lead: "I support only one woman each month",
       p2: ", so that I have enough space to provide individual care before and during birth, as well as after the baby is born.",
-      p3: "In my work, I combine practical birth preparation, body and breath work, rebozo care, and the principles of traditional Czech herbal and Ayurvedic postpartum care.",
-      p4: "At the heart of my care, however, are always your own needs and wishes, and what truly matters to you during this time.",
+      p3: "My support may include practical birth preparation, body and breath work, rebozo, and principles of traditional Czech herbal and Ayurvedic postpartum care.",
+      p4: "The methods always come second. What matters most is you — your wishes, your boundaries, and what helps you feel safe in each moment.",
       eyebrow: "About",
-      title: "Care with space devoted to you.",
+      title: "I will be beside you, with respect and without judgement.",
       more: "More about me",
       courses: "Education and courses",
     },
@@ -178,7 +196,7 @@ export const t = {
     nourishment: {
       eyebrow: "Herbs and nourishment",
       title: "Care that brings warmth and nourishment.",
-      text: "Herbs, oils, and nourishing homemade food may, by arrangement, become a gentle part of postpartum care. I draw on the season, your individual needs, and what brings you warmth, calm, and a sense of safety during the postpartum period.",
+      text: "You do not have to manage everything alone after birth. By arrangement, I can bring or prepare warm homemade food and offer gentle care with herbs or oils. I always consider your needs, health, the season, and what feels comfortable to you.",
       oil: "St John’s wort oil",
       oilDetail: "Herbal care prepared with attention",
       food: "Homemade food",
@@ -186,12 +204,12 @@ export const t = {
       rosehipsAlt: "Rosehips in the garden",
     },
     location: {
-      title: "Prague, Kutná Hora region, and kind online support.",
-      text: "In-person meetings take place mainly in Prague and the Kutná Hora region. Preparation, birth story integration, and part of postpartum care can also be arranged online or as a sensitive combination of meetings.",
+      title: "In person in Prague and Kutná Hora. Online wherever you are.",
+      text: "We can meet in person in Prague or the Kutná Hora area. Birth preparation, consultations, and birth story integration are also available online. Together, we will choose a format that feels practical and safe for you.",
     },
     contact: {
       eyebrow: "Contact",
-      title: "Reach out for support.",
+      title: "Tell me what you need right now.",
       name: "Name",
       namePlaceholder: "Your name",
       email: "E-mail",
@@ -205,6 +223,16 @@ export const t = {
       success: "Thank you, your message has been sent. I will get back to you as soon as possible.",
       error: "Your message could not be sent. Please try again or email me directly.",
       subject: "Light of Birth Inquiry",
+    },
+    faq: {
+      eyebrow: "Frequently asked questions",
+      title: "You may be wondering…",
+      items: [
+        { question: "When is the best time to contact a doula?", answer: "You are welcome to reach out early in pregnancy, although many women contact me during the second trimester. If your due date is close, please still write — we can check my availability and discuss how I may support you." },
+        { question: "Can my partner be with me during birth?", answer: "Yes. I do not replace your partner; I help both of you feel more informed, create a calmer environment, and find forms of support that feel comfortable to you." },
+        { question: "Which maternity hospitals do you attend?", answer: "I primarily attend births in Prague and the Kutná Hora area. We will discuss the specific hospital and travel arrangements during our introductory conversation." },
+        { question: "What if I do not know which service to choose?", answer: "That is completely fine. Send me a few lines about your situation, and during a free introductory conversation we can explore what level of support would make sense for you." },
+      ],
     },
     footer: {
       disclaimer1: "Travel expenses outside Prague are always charged based on distance.",
@@ -239,8 +267,8 @@ export const servicesData = {
     {
       title: "Příprava k porodu",
       subtitle: "Individuální předporodní příprava",
-      text: "Individuální prostor pro ženu nebo pár, kteří se chtějí na porod připravit prakticky, informovaně a podle vlastních potřeb.",
-      detail: "Obsah setkání vždy přizpůsobíme vašim individuálním potřebám, otázkám a přáním.",
+      text: "Získáte srozumitelné informace i praktické nástroje, abyste se na porod mohla připravit s větší jistotou a podle svých potřeb.",
+      detail: "Na třech individuálních setkáních se zaměříme přesně na vaše otázky, přání a případné obavy. Zapojit se může i váš partner nebo partnerka.",
       sections: [
         {
           heading: "Balíček zahrnuje",
@@ -270,8 +298,8 @@ export const servicesData = {
     {
       title: "Doprovod k porodu",
       subtitle: "Příprava, pohotovost a kontinuální péče při porodu",
-      text: "Tichá a stabilní přítomnost během porodu, podpora partnera, jemný dotek, práce s dechem a respekt k porodnímu týmu.",
-      detail: "Péče začíná již během těhotenství, abychom měly dostatek času se poznat, připravit na porod a společně projít vaše přání, potřeby a případné obavy.",
+      text: "U porodu budete mít vedle sebe známou a klidnou osobu, která zná vaše přání, podpoří vás i partnera a respektuje spolupráci s porodním týmem.",
+      detail: "Poznáme se už v těhotenství, abyste věděla, koho si k porodu zvete. Společně projdeme vaše přání, potřeby i obavy a připravíme partnera na to, jak vám může být oporou.",
       sections: [
         {
           heading: "Před porodem",
@@ -318,8 +346,8 @@ export const servicesData = {
     {
       title: "Těhotenství · porod · šestinedělí",
       subtitle: "Kontinuální péče v celém období",
-      text: "Provázení během těhotenství, porodu i šestinedělí, s prostorem pro tělo, emoce, odpočinek a postupný přechod do mateřství.",
-      detail: "Kontinuální péče pro ženu, která si přeje, aby podpora neskončila narozením miminka. Provázím vás od přípravy během těhotenství přes samotný porod až do prvních týdnů vašeho společného života.",
+      text: "Pokud si přejete, aby podpora neskončila narozením miminka, budu s vámi od přípravy přes porod až do prvních týdnů doma.",
+      detail: "Získáte kontinuitu, klid a známý vztah v celém období. Budeme pečovat o praktickou přípravu, vaše tělo a emoce i o prostor pro odpočinek po porodu.",
       sections: [
         {
           heading: "Před porodem",
@@ -371,8 +399,8 @@ export const servicesData = {
     {
       title: "Posvátné šestinedělí",
       subtitle: "42 dní poporodní péče",
-      text: "Komplexní šestitýdenní péče zaměřená především na ženu, její výživu, odpočinek, regeneraci a postupný přechod do mateřství.",
-      detail: "Péče vychází z principů ajurvédské péče o ženu během prvních 42 dní po narození dítěte a je vždy přizpůsobena individuálním potřebám ženy a rodiny.",
+      text: "Po dobu prvních šesti týdnů budete mít pravidelnou podporu zaměřenou na vás — vaše jídlo, teplo, odpočinek, regeneraci a nový rytmus rodiny.",
+      detail: "Péči sestavíme ještě před narozením miminka podle vašich potřeb, zdravotního stavu a možností domácnosti. Inspiruji se ájurvédskými principy, vždy však respektuji vaše preference a doporučení zdravotníků.",
       sections: [
         {
           heading: "Plán, délka a návštěvy",
@@ -419,8 +447,8 @@ export const servicesData = {
     {
       title: "Celá cesta",
       subtitle: "Těhotenství · porod · 42 dní poporodní péče",
-      text: "Nejkomplexnější forma kontinuální péče. Jedna průvodkyně od přípravy během těhotenství přes porod až po celé období šestinedělí.",
-      detail: "Jedna průvodkyně od přípravy během těhotenství přes porod až po celé období šestinedělí.",
+      text: "Jedna průvodkyně, kterou znáte a které důvěřujete — od přípravy v těhotenství přes porod až po celých 42 dní po narození miminka.",
+      detail: "Tato nejrozsáhlejší spolupráce vám dává kontinuitu v době, kdy se mnoho věcí rychle mění. Rozsah návštěv, přípravy jídla i praktické podpory nastavíme individuálně.",
       sections: [
         {
           heading: "Před porodem",
@@ -470,8 +498,8 @@ export const servicesData = {
     {
       title: "Jednorázová poporodní návštěva",
       subtitle: "Podpora podle toho, co právě potřebujete",
-      text: "Jednorázová návštěva v domácím prostředí zaměřená na potřeby ženy a její rodiny během šestinedělí.",
-      detail: "Obsah návštěvy přizpůsobíme tomu, co v daný den potřebujete nejvíce.",
+      text: "Dvě hodiny podpory u vás doma, když si potřebujete odpočinout, najíst se, sdílet svůj porodní příběh nebo získat praktickou pomoc.",
+      detail: "Nemusíte se vejít do předem daného scénáře. Návštěvu přizpůsobíme tomu, co vám v daný den nejvíce uleví.",
       sections: [
         {
           heading: "Může zahrnovat",
@@ -496,8 +524,8 @@ export const servicesData = {
     {
       title: "Birth Preparation",
       subtitle: "Individual prenatal preparation",
-      text: "An individual space for a woman or a couple who want to prepare for birth practically, informatively, and according to their own needs.",
-      detail: "The content of the meetings is always tailored to your individual needs, questions, and wishes.",
+      text: "You will gain clear information and practical tools to prepare for birth with greater confidence and in a way that reflects your needs.",
+      detail: "Across three individual meetings, we will focus on your questions, wishes, and concerns. Your partner is welcome to take part too.",
       sections: [
         {
           heading: "The package includes",
@@ -527,8 +555,8 @@ export const servicesData = {
     {
       title: "Birth Support",
       subtitle: "Preparation, on-call, and continuous birth support",
-      text: "Quiet and stable presence during birth, partner support, gentle touch, breath work, and respect for the medical team.",
-      detail: "Care begins during pregnancy, so we have enough time to get to know each other, prepare for birth, and go over your wishes, needs, and concerns.",
+      text: "During birth, you will have a familiar, calm person beside you who knows your wishes, supports both you and your partner, and respects the medical team.",
+      detail: "We get to know each other during pregnancy, so you know whom you are inviting into your birth space. Together, we explore your wishes, needs, and concerns and prepare your partner to support you.",
       sections: [
         {
           heading: "Before birth",
@@ -575,8 +603,8 @@ export const servicesData = {
     {
       title: "Pregnancy · Birth · Postpartum",
       subtitle: "Continuous care throughout the entire period",
-      text: "Guidance during pregnancy, birth, and the postpartum period, with space for the body, emotions, rest, and a gradual transition to motherhood.",
-      detail: "Continuous care for a woman who wishes the support not to end with the birth of the baby. I guide you from preparation during pregnancy through the birth itself into the first weeks of your life together.",
+      text: "If you would like support to continue beyond your baby's birth, I will be with you from preparation through labour and into your first weeks at home.",
+      detail: "You gain continuity, calm, and a familiar relationship throughout this transition. We make space for practical preparation, your body and emotions, and genuine rest after birth.",
       sections: [
         {
           heading: "Before birth",
@@ -628,8 +656,8 @@ export const servicesData = {
     {
       title: "Sacred Postpartum",
       subtitle: "42 days of postpartum care",
-      text: "Comprehensive six-week care focused primarily on the woman, her nutrition, rest, regeneration, and gradual transition to motherhood.",
-      detail: "The care is based on the principles of Ayurvedic postpartum care for women during the first 42 days after childbirth and is always tailored to the individual needs of the woman and family.",
+      text: "For the first six weeks, you receive regular support centred on you — nourishing food, warmth, rest, recovery, and your family's new rhythm.",
+      detail: "We create your care plan before the baby arrives, based on your needs, health, and home circumstances. I draw inspiration from Ayurvedic principles while always respecting your preferences and medical advice.",
       sections: [
         {
           heading: "Plan, duration, and visits",
@@ -676,8 +704,8 @@ export const servicesData = {
     {
       title: "The Complete Journey",
       subtitle: "Pregnancy · Birth · 42 days of postpartum care",
-      text: "The most comprehensive form of continuous care. One guide from preparation during pregnancy through birth to the entire postpartum period.",
-      detail: "One guide from preparation during pregnancy through birth to the entire postpartum period.",
+      text: "One trusted guide beside you — from preparation in pregnancy, through birth, and throughout the first 42 days with your baby.",
+      detail: "This is the most comprehensive form of care, offering continuity while many things are changing. We tailor the visits, meal preparation, and practical support to your family.",
       sections: [
         {
           heading: "Before birth",
@@ -727,8 +755,8 @@ export const servicesData = {
     {
       title: "One-off Postpartum Visit",
       subtitle: "Support according to what you need right now",
-      text: "A one-off visit in the home environment focused on the needs of the woman and her family during the postpartum period.",
-      detail: "We will adapt the content of the visit to what you need most on that given day.",
+      text: "Two hours of support in your home when you need rest, nourishing food, space for your birth story, or practical help.",
+      detail: "You do not need to fit a preset plan. We shape the visit around what would bring you the most relief that day.",
       sections: [
         {
           heading: "May include",
