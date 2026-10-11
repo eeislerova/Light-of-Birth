@@ -636,8 +636,9 @@ export default function App() {
               <img src="/images/draft-care/nourishing-bowl.jpg" alt={locale.nourishment.food} className="h-full min-h-0 w-full rounded-[0.75rem] object-cover shadow-[0_10px_30px_rgba(75,49,37,0.1)]" style={{ filter: "saturate(1.08) contrast(.97) brightness(1.03) sepia(.1)" }} loading="lazy" decoding="async" />
               <img src="/images/draft-care/rosehips.jpg" alt={locale.nourishment.rosehipsAlt} className="h-full min-h-0 w-full rounded-[0.75rem_1.75rem_0.75rem_0.75rem] object-cover shadow-[0_10px_30px_rgba(75,49,37,0.1)]" style={{ filter: "saturate(1.08) contrast(.97) brightness(1.03) sepia(.1)" }} loading="lazy" decoding="async" />
             </div>
-            <div className="min-h-0 overflow-hidden rounded-[0.75rem_0.75rem_1.75rem_0.75rem] bg-[#ddc9b4] shadow-[0_10px_30px_rgba(75,49,37,0.1)]">
-              <img src="/images/draft-care/oats-fruit-nuts.jpg" alt={locale.nourishment.food} className="h-full w-full object-cover object-center" style={{ filter: "saturate(1.06) contrast(.97) brightness(1.03) sepia(.08)" }} loading="lazy" decoding="async" />
+            <div className="grid min-h-0 grid-cols-2 gap-2.5 sm:gap-3">
+              <img src="/images/draft-care/oats-fruit-nuts.jpg" alt={locale.nourishment.food} className="h-full min-h-0 w-full rounded-[0.75rem] object-cover object-center shadow-[0_10px_30px_rgba(75,49,37,0.1)]" style={{ filter: "saturate(1.06) contrast(.97) brightness(1.03) sepia(.08)" }} loading="lazy" decoding="async" />
+              <img src="/images/draft-care/fruit-dumplings.jpg" alt={locale.nourishment.food} className="h-full min-h-0 w-full rounded-[0.75rem_0.75rem_1.75rem_0.75rem] object-cover object-center shadow-[0_10px_30px_rgba(75,49,37,0.1)]" style={{ filter: "saturate(1.03) contrast(.96) brightness(1.03) sepia(.08)" }} loading="lazy" decoding="async" />
             </div>
           </div>
         </div>
