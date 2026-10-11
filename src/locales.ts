@@ -22,12 +22,12 @@ export const t = {
     space: {
       eyebrow: "O prostoru péče",
       title: "Nemusíte na porod ani šestinedělí zůstávat sama.",
-      text: "Můžete se ptát, zpomalit a připravovat se způsobem, který dává smysl právě vám. Nabídnu vám srozumitelné informace, praktickou přípravu a klidnou přítomnost před porodem, během něj i po narození miminka. Vaše potřeby, hranice a rozhodnutí zůstávají vždy v centru naší spolupráce. Dula nenahrazuje zdravotnickou péči; doplňuje ji kontinuitou, lidskou oporou a časem věnovaným vám.",
+      text: "Můžete se ptát, zpomalit a připravovat se způsobem, který dává smysl právě vám. Nabídnu vám srozumitelné informace, praktickou přípravu a klidnou přítomnost před porodem, během něj i po narození miminka. Vaše potřeby, hranice a rozhodnutí zůstávají vždy v centru naší spolupráce. Dula nenahrazuje zdravotnickou péči, doplňuje ji kontinuitou, lidskou oporou a časem věnovaným vám.",
     },
     care: {
       eyebrow: "Nabídka",
       title: "Vyberte si podporu, kterou právě potřebujete",
-      text: "Možná hledáte jistotu před porodem, známou tvář k porodu nebo péči, která vás podrží i v šestinedělí. Prohlédněte si jednotlivé možnosti; u každé najdete jasný rozsah i cenu. Pokud si nejste jistá, společně vybereme cestu, která vám bude skutečně sedět.",
+      text: "Možná hledáte jistotu před porodem, známou tvář k porodu nebo péči, která vás podrží i v šestinedělí. Prohlédněte si jednotlivé možnosti, u každé najdete jasný rozsah i cenu. Pokud si nejste jistá, společně vybereme cestu, která vám bude skutečně sedět.",
       note: "Osobně v Praze a na Kutnohorsku · vybrané konzultace také online",
       detailLabel: "Podrobný obsah péče",
       investment: "Investice",
@@ -49,7 +49,7 @@ export const t = {
       eyebrow: "Tradice jako zázemí",
       title: "České kořeny, indická tradice",
       p1: "V péči o vás propojuji českou blízkost k přírodě, bylinám a domovu s inspirací z ájurvédy. Těhotenství, porod i šestinedělí vnímám jako citlivé období, ve kterém si zasloužíte čas, teplo, pozornost a respekt.",
-      p2: "Z tradic vybírám jen to, co je pro vás bezpečné, srozumitelné a příjemné. Nic vám nevnucuji — společně hledáme podobu péče, ve které se můžete cítit sama sebou.",
+      p2: "Z tradic vybírám jen to, co je pro vás bezpečné, srozumitelné a příjemné.",
       more: "Více o mně",
     },
     about: {
@@ -57,7 +57,7 @@ export const t = {
       p2Lead: "Doprovázím pouze jednu ženu měsíčně",
       p2: ", abych měla dostatek prostoru pro individuální péči před porodem, během něj i v období po narození miminka.",
       p3: "Při přípravě a doprovodu využívám práci s tělem a dechem, rebozo i principy tradiční české bylinné a ájurvédské poporodní péče.",
-      p4: "Metody jsou ale až na druhém místě. Nejdůležitější jste vy — vaše přání, vaše hranice a to, co vám v danou chvíli přináší pocit bezpečí.",
+      p4: "Metody jsou ale až na druhém místě. Nejdůležitější jste vy ~ vaše přání, vaše hranice a to, co vám v danou chvíli přináší pocit bezpečí.",
       eyebrow: "O mně",
       title: "Budu vedle vás. S respektem a bez hodnocení.",
       more: "Více o mně",
@@ -73,7 +73,7 @@ export const t = {
     nourishment: {
       eyebrow: "Byliny a výživa",
       title: "Péče, která zahřívá a vyživuje.",
-      text: "V šestinedělí nemusíte všechno zvládat sama. Podle domluvy vám mohu přivézt nebo připravit teplé domácí jídlo a nabídnout jemnou péči s bylinami či oleji. Vždy vycházím z vašich potřeb, zdravotního stavu, ročního období a z toho, co je vám příjemné.",
+      text: "V šestinedělí nemusíte všechno zvládat sama. Podle domluvy vám mohu připravit teplé domácí jídlo a nabídnout jemnou péči s bylinami či oleji. Vždy vycházím z vašich potřeb, zdravotního stavu, ročního období a z toho, co je vám příjemné.",
       oil: "Třezalkový olej",
       oilDetail: "Bylinná péče připravovaná s pozorností",
       food: "Domácí jídlo",
@@ -105,8 +105,8 @@ export const t = {
       eyebrow: "Časté otázky",
       title: "Možná se právě ptáte…",
       items: [
-        { question: "Kdy je nejlepší dulu oslovit?", answer: "Klidně už na začátku těhotenství, nejčastěji ale ženy píší během druhého trimestru. Pokud je váš termín blízko, ozvěte se i tak — společně ověříme, zda mám kapacitu a jak vám mohu pomoci." },
-        { question: "Může být u porodu se mnou i partner?", answer: "Ano. Partnera nenahrazuji; pomáhám vám oběma lépe se zorientovat, vytvořit klidnější prostředí a najít způsoby podpory, které jsou vám příjemné." },
+        { question: "Kdy je nejlepší dulu oslovit?", answer: "Klidně už na začátku těhotenství, nejčastěji ale ženy píší během druhého trimestru. Pokud je váš termín blízko, ozvěte se i tak ~ společně ověříme, zda mám kapacitu a jak vám mohu pomoci." },
+        { question: "Může být u porodu se mnou i partner?", answer: "Ano. Partnera nenahrazuji, pomáhám vám oběma lépe se zorientovat, vytvořit klidnější prostředí a najít způsoby podpory, které jsou vám příjemné." },
         { question: "Ve kterých porodnicích doprovázíte?", answer: "Doprovázím především v porodnicích v Praze a v okolí Kutné Hory. Konkrétní místo i dojezd vždy probereme při úvodním rozhovoru." },
         { question: "Co když nevím, kterou péči vybrat?", answer: "To je úplně v pořádku. Napište mi pár vět o své situaci a na bezplatném úvodním setkání společně zjistíme, jaká míra podpory vám bude dávat smysl." },
       ],
@@ -145,7 +145,7 @@ export const t = {
     space: {
       eyebrow: "About the care space",
       title: "You do not have to move through birth and postpartum alone.",
-      text: "You can ask questions, slow down, and prepare in a way that feels right for you. I offer clear information, practical preparation, and a calm presence before, during, and after birth. Your needs, boundaries, and decisions remain at the heart of our work together. A doula does not replace medical care; she complements it with continuity, human support, and time devoted to you.",
+      text: "You can ask questions, slow down, and prepare in a way that feels right for you. I offer clear information, practical preparation, and a calm presence before, during, and after birth. Your needs, boundaries, and decisions remain at the heart of our work together. A doula does not replace medical care, she complements it with continuity, human support, and time devoted to you.",
     },
     care: {
       eyebrow: "Services",
@@ -166,13 +166,13 @@ export const t = {
       extendedText: "For women who would like one guide through a longer part of their journey, I also offer extended forms of care connecting pregnancy, birth, and the postpartum period.",
       premiumLabel: "Intensive individual care",
       cta: "Book a free 30-minute conversation",
-      ctaNote: "We can meet without obligation, talk about your wishes, and see whether my support feels right for you — online or in person by arrangement.",
+      ctaNote: "We can meet without obligation, talk about your wishes, and see whether my support feels right for you ~ online or in person by arrangement.",
     },
     tradition: {
       eyebrow: "Tradition as a foundation",
       title: "Czech roots, Indian tradition",
       p1: "In caring for you, I bring together the Czech closeness to nature, herbs, and home with inspiration from Ayurveda. I see pregnancy, birth, and postpartum as sensitive times in which you deserve warmth, attention, time, and respect.",
-      p2: "I use only what feels safe, clear, and supportive to you. Nothing is imposed — together, we shape care in which you can remain fully yourself.",
+      p2: "I use only what feels safe, clear, and supportive to you. Nothing is imposed ~ together, we shape care in which you can remain fully yourself.",
       more: "More about me",
     },
     about: {
@@ -180,7 +180,7 @@ export const t = {
       p2Lead: "I support only one woman each month",
       p2: ", so that I have enough space to provide individual care before and during birth, as well as after the baby is born.",
       p3: "My support may include practical birth preparation, body and breath work, rebozo, and principles of traditional Czech herbal and Ayurvedic postpartum care.",
-      p4: "The methods always come second. What matters most is you — your wishes, your boundaries, and what helps you feel safe in each moment.",
+      p4: "The methods always come second. What matters most is you ~ your wishes, your boundaries, and what helps you feel safe in each moment.",
       eyebrow: "About",
       title: "I will be beside you, with respect and without judgement.",
       more: "More about me",
@@ -228,8 +228,8 @@ export const t = {
       eyebrow: "Frequently asked questions",
       title: "You may be wondering…",
       items: [
-        { question: "When is the best time to contact a doula?", answer: "You are welcome to reach out early in pregnancy, although many women contact me during the second trimester. If your due date is close, please still write — we can check my availability and discuss how I may support you." },
-        { question: "Can my partner be with me during birth?", answer: "Yes. I do not replace your partner; I help both of you feel more informed, create a calmer environment, and find forms of support that feel comfortable to you." },
+        { question: "When is the best time to contact a doula?", answer: "You are welcome to reach out early in pregnancy, although many women contact me during the second trimester. If your due date is close, please still write ~ we can check my availability and discuss how I may support you." },
+        { question: "Can my partner be with me during birth?", answer: "Yes. I do not replace your partner, I help both of you feel more informed, create a calmer environment, and find forms of support that feel comfortable to you." },
         { question: "Which maternity hospitals do you attend?", answer: "I primarily attend births in Prague and the Kutná Hora area. We will discuss the specific hospital and travel arrangements during our introductory conversation." },
         { question: "What if I do not know which service to choose?", answer: "That is completely fine. Send me a few lines about your situation, and during a free introductory conversation we can explore what level of support would make sense for you." },
       ],
@@ -399,7 +399,7 @@ export const servicesData = {
     {
       title: "Posvátné šestinedělí",
       subtitle: "42 dní poporodní péče",
-      text: "Po dobu prvních šesti týdnů budete mít pravidelnou podporu zaměřenou na vás — vaše jídlo, teplo, odpočinek, regeneraci a nový rytmus rodiny.",
+      text: "Po dobu prvních šesti týdnů budete mít pravidelnou podporu zaměřenou na vás ~ vaše jídlo, teplo, odpočinek, regeneraci a nový rytmus rodiny.",
       detail: "Péči sestavíme ještě před narozením miminka podle vašich potřeb, zdravotního stavu a možností domácnosti. Inspiruji se ájurvédskými principy, vždy však respektuji vaše preference a doporučení zdravotníků.",
       sections: [
         {
@@ -442,12 +442,12 @@ export const servicesData = {
       // TODO: Doplnit konkrétnější podobu prvního a dalších týdnů pouze podle potvrzených údajů.
       price: "od 119 000 Kč",
       summary: "42 dní péče | od 119 000 Kč",
-      priceNote: "cena se odvíjí také od preferencí vašeho jídelníčku; dohodou po celé ČR",
+      priceNote: "cena se odvíjí také od preferencí vašeho jídelníčku, dohodou po celé ČR",
     },
     {
       title: "Celá cesta",
       subtitle: "Těhotenství · porod · 42 dní poporodní péče",
-      text: "Jedna průvodkyně, kterou znáte a které důvěřujete — od přípravy v těhotenství přes porod až po celých 42 dní po narození miminka.",
+      text: "Jedna průvodkyně, kterou znáte a které důvěřujete ~ od přípravy v těhotenství přes porod až po celých 42 dní po narození miminka.",
       detail: "Tato nejrozsáhlejší spolupráce vám dává kontinuitu v době, kdy se mnoho věcí rychle mění. Rozsah návštěv, přípravy jídla i praktické podpory nastavíme individuálně.",
       sections: [
         {
@@ -656,7 +656,7 @@ export const servicesData = {
     {
       title: "Sacred Postpartum",
       subtitle: "42 days of postpartum care",
-      text: "For the first six weeks, you receive regular support centred on you — nourishing food, warmth, rest, recovery, and your family's new rhythm.",
+      text: "For the first six weeks, you receive regular support centred on you ~ nourishing food, warmth, rest, recovery, and your family's new rhythm.",
       detail: "We create your care plan before the baby arrives, based on your needs, health, and home circumstances. I draw inspiration from Ayurvedic principles while always respecting your preferences and medical advice.",
       sections: [
         {
@@ -699,12 +699,12 @@ export const servicesData = {
       // TODO: Add a more specific first-week and later-weeks outline only when confirmed information is available.
       price: "from 119,000 CZK",
       summary: "42 days of care | from 119,000 CZK",
-      priceNote: "price also depends on dietary preferences; available across the whole CZ by agreement",
+      priceNote: "price also depends on dietary preferences, available across the whole CZ by agreement",
     },
     {
       title: "The Complete Journey",
       subtitle: "Pregnancy · Birth · 42 days of postpartum care",
-      text: "One trusted guide beside you — from preparation in pregnancy, through birth, and throughout the first 42 days with your baby.",
+      text: "One trusted guide beside you ~ from preparation in pregnancy, through birth, and throughout the first 42 days with your baby.",
       detail: "This is the most comprehensive form of care, offering continuity while many things are changing. We tailor the visits, meal preparation, and practical support to your family.",
       sections: [
         {

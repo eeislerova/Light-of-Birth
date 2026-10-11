@@ -38,7 +38,7 @@ export const legalDocuments: Record<string, LegalDocument> = {
       {
         heading: "3. Odkazy na služby třetích stran",
         paragraphs: [
-          "Web obsahuje odkazy na služby třetích stran, například Instagram a LinkedIn. K ukládání cookies těmito službami může dojít až po přechodu na jejich stránky a řídí se jejich vlastními zásadami ochrany soukromí a používání cookies.",
+          "Web obsahuje odkazy na služby třetích stran, například Instagram. K ukládání cookies těmito službami může dojít až po přechodu na jejich stránky a řídí se jejich vlastními zásadami ochrany soukromí a používání cookies.",
         ],
       },
       {
@@ -84,11 +84,11 @@ export const legalDocuments: Record<string, LegalDocument> = {
           "Dula zejména:",
         ],
         bullets: [
-          "nestanovuje diagnózy;",
-          "neprovádí zdravotnická vyšetření ani zdravotnické výkony;",
-          "nepředepisuje ani nedoporučuje léčiva jako náhradu odborného zdravotnického doporučení;",
-          "nerozhoduje za klientku o zdravotní péči;",
-          "neposuzuje zdravotní stav matky nebo dítěte způsobem náležejícím zdravotnickému pracovníkovi;",
+          "nestanovuje diagnózy,",
+          "neprovádí zdravotnická vyšetření ani zdravotnické výkony,",
+          "nepředepisuje ani nedoporučuje léčiva jako náhradu odborného zdravotnického doporučení,",
+          "nerozhoduje za klientku o zdravotní péči,",
+          "neposuzuje zdravotní stav matky nebo dítěte způsobem náležejícím zdravotnickému pracovníkovi,",
           "nenahrazuje odbornou péči porodní asistentky nebo lékaře.",
         ],
       },
@@ -181,7 +181,7 @@ export const legalDocuments: Record<string, LegalDocument> = {
       { heading: "7. Důvěrnost", paragraphs: ["Informace sdělené během spolupráce považuji za důvěrné. Příběhy klientek, fotografie, reference nebo jiné informace umožňující identifikaci klientky nezveřejňuji bez odpovídajícího právního základu, typicky předchozího souhlasu klientky."] },
       { heading: "8. Kontaktní formulář", paragraphs: ["Pokud mě kontaktujete prostřednictvím formuláře na webu, zpracovávám údaje, které uvedete, za účelem vyřízení vašeho dotazu a případného navázání spolupráce. Prostřednictvím běžného kontaktního formuláře prosím neposílejte více citlivých zdravotních informací, než je pro první kontakt nezbytné."] },
       { heading: "9. Cookies", paragraphs: ["Webové stránky mohou používat soubory cookies a obdobné technologie. Nezbytné cookies mohou být používány bez souhlasu, pokud to právní předpisy umožňují. Analytické, marketingové nebo jiné volitelné cookies jsou používány v souladu s příslušnými právními požadavky a tam, kde je to vyžadováno, až po udělení souhlasu."] },
-      { heading: "10. Sociální sítě", paragraphs: ["Light of Birth může být prezentován také prostřednictvím sociálních sítí, například Instagramu a LinkedIn. Při návštěvě těchto služeb dochází rovněž ke zpracování osobních údajů jejich provozovateli podle jejich vlastních zásad."] },
+      { heading: "10. Sociální sítě", paragraphs: ["Light of Birth může být prezentován také prostřednictvím sociálních sítí, například Instagramu. Při návštěvě těchto služeb dochází rovněž ke zpracování osobních údajů jejich provozovateli podle jejich vlastních zásad."] },
       { heading: "11. Vaše práva", paragraphs: ["Za podmínek stanovených GDPR máte zejména právo získat informace o zpracování údajů, požadovat přístup, opravu, výmaz nebo omezení zpracování, vznést námitku, požadovat přenositelnost údajů a odvolat souhlas, pokud je zpracování založeno na souhlasu.", "V případě jakýchkoli obav, nejasností nebo nepříjemností budu ráda, pokud se je v prvním kroku pokusíme vyřešit společně prostřednictvím e-mailové komunikace na adrese eeislerova@gmail.com.", "Se žádostí týkající se zpracování osobních údajů se můžete obrátit na: eeislerova@gmail.com.", "Pokud se domníváte, že jsou vaše osobní údaje zpracovávány v rozporu s právními předpisy, máte právo podat stížnost u Úřadu pro ochranu osobních údajů."] },
       { heading: "12. Zabezpečení údajů", paragraphs: ["Přijímám přiměřená technická a organizační opatření s cílem chránit osobní údaje před neoprávněným přístupem, ztrátou, zneužitím nebo zveřejněním. Běžná e-mailová nebo internetová komunikace však nemůže být za všech okolností považována za absolutně bezpečný způsob přenosu citlivých informací."] },
       { heading: "13. Změny těchto zásad", paragraphs: ["Tyto zásady mohou být průběžně aktualizovány. Aktuální verze bude zveřejněna na lightofbirth.cz a lightofbirth.com."] },

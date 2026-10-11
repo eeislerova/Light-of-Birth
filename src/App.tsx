@@ -175,7 +175,7 @@ export default function App() {
           email: contactEmail,
           image: `${preferredDomain}/images/eliska-o-mne-new.jpg`,
           areaServed: ["Praha", "Kutná Hora", "Středočeský kraj"],
-          sameAs: ["https://www.instagram.com/lightofbirth/", "https://www.linkedin.com/in/eli%C5%A1ka-eislerov%C3%A1-15b700217/"],
+          sameAs: ["https://www.instagram.com/lightofbirth/"],
         },
         {
           "@type": "FAQPage",
@@ -908,7 +908,6 @@ export default function App() {
           </div>
           <div className="flex gap-6 text-sm text-[#d8c2ac]">
             <a className="underline underline-offset-4 hover:text-[#fff8ee]" href="https://www.instagram.com/lightofbirth/" target="_blank" rel="noopener noreferrer">Instagram</a>
-            <a className="underline underline-offset-4 hover:text-[#fff8ee]" href="https://www.linkedin.com/in/eli%C5%A1ka-eislerov%C3%A1-15b700217/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           </div>
           <p className="text-sm text-[#d8c2ac]">{locale.footer.subtitle}</p>
         </div>
