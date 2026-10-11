@@ -59,7 +59,7 @@ export const t = {
       p3: "Při přípravě a doprovodu využívám práci s tělem a dechem, rebozo i principy tradiční české bylinné a ájurvédské poporodní péče.",
       p4: "Metody jsou ale až na druhém místě. Nejdůležitější jste vy ~ vaše přání, vaše hranice a to, co vám v danou chvíli přináší pocit bezpečí.",
       eyebrow: "O mně",
-      title: "Budu vedle vás. S respektem a bez hodnocení.",
+      title: "Budu vedle vás.",
       more: "Více o mně",
       courses: "Vzdělání a kurzy",
     },
