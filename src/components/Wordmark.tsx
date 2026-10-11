@@ -22,7 +22,7 @@ export default function Wordmark({
 }: WordmarkProps) {
   return (
     <Tag
-      className={`font-serif inline-flex items-baseline whitespace-nowrap leading-none ${inkClassName} ${className}`}
+      className={`font-brand inline-flex items-baseline whitespace-nowrap leading-none ${inkClassName} ${className}`}
       style={{ fontSize: size }}
       aria-label="Light of Birth"
     >
