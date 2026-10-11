@@ -182,7 +182,7 @@ export const t = {
       p3: "My support may include practical birth preparation, body and breath work, rebozo, and principles of traditional Czech herbal and Ayurvedic postpartum care.",
       p4: "The methods always come second. What matters most is you ~ your wishes, your boundaries, and what helps you feel safe in each moment.",
       eyebrow: "About",
-      title: "I will be beside you, with respect and without judgement.",
+      title: "I will be beside you.",
       more: "More about me",
       courses: "Education and courses",
     },
