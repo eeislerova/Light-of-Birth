@@ -8,6 +8,7 @@ export const t = {
     },
     nav: {
       care: "Péče",
+      workshops: "Workshopy",
       tradition: "Tradice",
       about: "O mně",
       guides: "Průvodci",
@@ -62,6 +63,29 @@ export const t = {
       title: "Budu vedle vás.",
       more: "Více o mně",
       courses: "Vzdělání a kurzy",
+    },
+    workshops: {
+      eyebrow: "Light of Birth · Workshopy",
+      title: "Prostor pro vědomou přípravu a hlubší péči",
+      intro: "Dva komorní workshopy pro ženy, které chtějí vstoupit do porodu a šestinedělí s větší důvěrou, porozuměním a laskavou péčí o sebe.",
+      availability: "Termíny a podrobnosti připravuji",
+      cta: "Mám zájem",
+      items: [
+        {
+          number: "Workshop I",
+          title: "Light Up Before Birth",
+          subtitle: "Vědomí, důvěra a spojení před porodem.",
+          text: "Pro vás, pokud se chcete na porod připravit nejen informacemi, ale také skrze tělo, dech a hlubší kontakt se sebou. V bezpečném prostoru získáte praktické nástroje, které vám mohou pomoci cítit se klidněji a jistěji.",
+          points: ["porozumění proměnám před porodem", "dech, tělo a vnitřní opora", "prostor pro otázky a vlastní přání"],
+        },
+        {
+          number: "Workshop II",
+          title: "Nourishment After Birth",
+          subtitle: "Víc než jídlo ~ výživa pro tělo, mysl a srdce.",
+          text: "Pro vás, pokud chcete šestinedělí vnímat jako čas regenerace, tepla a laskavého zpomalení. Budeme mluvit o výživě v širším smyslu ~ o jídle, odpočinku, emocích i podpoře, kterou můžete přijímat.",
+          points: ["výživa a teplo v šestinedělí", "odpočinek, hranice a praktická podpora", "jemná péče o tělo i psychiku"],
+        },
+      ],
     },
     shop: {
       eyebrow: "Průvodci",
@@ -131,6 +155,7 @@ export const t = {
     },
     nav: {
       care: "Care",
+      workshops: "Workshops",
       tradition: "Tradition",
       about: "About",
       guides: "Guides",
@@ -185,6 +210,29 @@ export const t = {
       title: "I will be beside you.",
       more: "More about me",
       courses: "Education and courses",
+    },
+    workshops: {
+      eyebrow: "Light of Birth · Workshops",
+      title: "A space for conscious preparation and deeper care",
+      intro: "Two intimate workshops for women who want to enter birth and postpartum with greater confidence, understanding, and compassionate care for themselves.",
+      availability: "Dates and details are coming soon",
+      cta: "I’m interested",
+      items: [
+        {
+          number: "Workshop I",
+          title: "Light Up Before Birth",
+          subtitle: "Awareness, confidence and connection before childbirth.",
+          text: "For you if you want to prepare for birth not only through information, but also through your body, breath, and a deeper connection with yourself. In a safe space, you will discover practical tools to help you feel calmer and more confident.",
+          points: ["understanding the transition towards birth", "breath, body, and inner grounding", "space for your questions and wishes"],
+        },
+        {
+          number: "Workshop II",
+          title: "Nourishment After Birth",
+          subtitle: "More than food ~ nourishing the body, mind and heart.",
+          text: "For you if you want to experience postpartum as a time of recovery, warmth, and gentle slowing down. We will explore nourishment in its wider sense ~ food, rest, emotions, and the support you can allow yourself to receive.",
+          points: ["nourishment and warmth after birth", "rest, boundaries, and practical support", "gentle care for body and mind"],
+        },
+      ],
     },
     shop: {
       eyebrow: "Guides",
