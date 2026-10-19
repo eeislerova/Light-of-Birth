@@ -28,63 +28,6 @@ type Service = (typeof servicesData)[Lang][number];
 // Keep the guides ready for a future launch without showing the shop or its navigation links.
 const showGuides = false;
 
-function WorkshopArtwork({ variant }: { variant: "light" | "nourishment" }) {
-  if (variant === "light") {
-    return (
-      <svg viewBox="0 0 520 330" className="h-full w-full" aria-hidden="true">
-        <defs>
-          <radialGradient id="workshop-light-glow" cx="50%" cy="48%" r="58%">
-            <stop offset="0%" stopColor="#fff4d4" stopOpacity="0.95" />
-            <stop offset="42%" stopColor="#e8a96f" stopOpacity="0.62" />
-            <stop offset="100%" stopColor="#744532" stopOpacity="0" />
-          </radialGradient>
-          <linearGradient id="workshop-light-bg" x1="0" y1="0" x2="1" y2="1">
-            <stop stopColor="#40281f" />
-            <stop offset="1" stopColor="#8f5740" />
-          </linearGradient>
-        </defs>
-        <rect width="520" height="330" fill="url(#workshop-light-bg)" />
-        <circle cx="275" cy="158" r="148" fill="url(#workshop-light-glow)" />
-        {[44, 68, 94, 122].map((radius) => <circle key={radius} cx="275" cy="158" r={radius} fill="none" stroke="#f8d8ac" strokeOpacity={0.28} strokeWidth="1" />)}
-        {Array.from({ length: 20 }).map((_, index) => {
-          const angle = (index * Math.PI * 2) / 20;
-          const x1 = 275 + Math.cos(angle) * 104;
-          const y1 = 158 + Math.sin(angle) * 104;
-          const x2 = 275 + Math.cos(angle) * 144;
-          const y2 = 158 + Math.sin(angle) * 144;
-          return <line key={index} x1={x1} y1={y1} x2={x2} y2={y2} stroke="#f7d2a3" strokeOpacity="0.55" strokeWidth="1" />;
-        })}
-        <path d="M223 182c19-51 44-77 52-77s33 26 52 77c-17 23-35 35-52 35s-35-12-52-35Z" fill="#f7dec0" fillOpacity="0.18" stroke="#f9dfbd" strokeWidth="1.3" />
-        <circle cx="275" cy="158" r="8" fill="#fff1ce" />
-      </svg>
-    );
-  }
-
-  return (
-    <svg viewBox="0 0 520 330" className="h-full w-full" aria-hidden="true">
-      <defs>
-        <linearGradient id="workshop-nourish-bg" x1="0" y1="0" x2="1" y2="1">
-          <stop stopColor="#738267" />
-          <stop offset="1" stopColor="#34473a" />
-        </linearGradient>
-        <radialGradient id="workshop-nourish-glow" cx="50%" cy="44%" r="58%">
-          <stop stopColor="#f4d8a6" stopOpacity="0.7" />
-          <stop offset="1" stopColor="#d99a68" stopOpacity="0" />
-        </radialGradient>
-      </defs>
-      <rect width="520" height="330" fill="url(#workshop-nourish-bg)" />
-      <ellipse cx="268" cy="150" rx="175" ry="140" fill="url(#workshop-nourish-glow)" />
-      <path d="M142 192c28 65 72 96 126 96s98-31 126-96H142Z" fill="#ead7bc" fillOpacity="0.2" stroke="#f1dec5" strokeWidth="1.4" />
-      <path d="M172 192c18 36 54 55 96 55s78-19 96-55" fill="none" stroke="#f1dec5" strokeOpacity="0.55" />
-      <path d="M268 188c-7-67 7-113 48-142-2 54-18 96-48 142Z" fill="#e8c995" fillOpacity="0.36" stroke="#f5dfbb" />
-      <path d="M265 188c-37-52-77-76-120-69 30 39 70 62 120 69Z" fill="#e8c995" fillOpacity="0.28" stroke="#f5dfbb" />
-      <path d="M270 188c36-37 76-48 119-33-32 28-71 39-119 33Z" fill="#e8c995" fillOpacity="0.24" stroke="#f5dfbb" />
-      <circle cx="268" cy="190" r="10" fill="#f3d7a8" />
-      {[0, 1, 2, 3, 4].map((index) => <circle key={index} cx={198 + index * 35} cy={207 - (index % 2) * 9} r={4 + (index % 3)} fill="#f1d6a7" fillOpacity="0.75" />)}
-    </svg>
-  );
-}
-
 function LegalPage({ document: legalDocument, lang }: { document: LegalDocument; lang: Lang }) {
   const pageRef = useRef<HTMLElement>(null);
 
@@ -500,6 +443,65 @@ export default function App() {
         </div>
       </section>
 
+      <section id="workshopy" className="relative overflow-hidden bg-[#3b281f] px-5 py-24 text-[#fff8ee] sm:px-8 lg:px-12 lg:py-32">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_12%_15%,rgba(217,154,104,0.2),transparent_30%),radial-gradient(circle_at_88%_72%,rgba(124,143,105,0.18),transparent_34%)]" aria-hidden="true" />
+        <div className="relative mx-auto max-w-7xl">
+          <div className="grid gap-8 border-b border-[#f5ddc2]/25 pb-12 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
+            <p className="text-sm uppercase tracking-[0.24em] text-[#e7aa7c]">{locale.workshops.eyebrow}</p>
+            <div>
+              <h2 className="max-w-4xl font-serif text-5xl leading-tight tracking-[-0.035em] text-[#fff8ee] sm:text-6xl">
+                {locale.workshops.title}
+              </h2>
+              <p className="mt-6 max-w-3xl text-lg font-light leading-8 text-[#f5ddc2]/82">{locale.workshops.intro}</p>
+            </div>
+          </div>
+
+          <div className="mt-12 space-y-7">
+            {locale.workshops.items.map((workshop, index) => (
+              <article key={workshop.title} className="group grid overflow-hidden rounded-[2rem] border border-[#f5ddc2]/20 bg-[#fff8ee]/[0.055] shadow-[0_24px_80px_rgba(20,11,7,0.2)] lg:grid-cols-2">
+                <div className={`relative min-h-[16rem] overflow-hidden sm:min-h-[20rem] ${index === 1 ? "lg:order-2" : ""}`}>
+                  <img
+                    src={index === 0 ? "/images/workshop-light-up-before-birth.jpg" : "/images/workshop-nourishment-after-birth.jpg"}
+                    alt={workshop.title}
+                    className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-[1.025]"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#2d1b14]/35 via-transparent to-white/[0.04]" aria-hidden="true" />
+                  <div className="absolute left-6 top-6 rounded-full border border-white/30 bg-[#2d1b14]/25 px-4 py-2 text-[0.65rem] uppercase tracking-[0.22em] text-[#fff8ee] backdrop-blur-sm sm:left-8 sm:top-8">
+                    Light of Birth · {workshop.number}
+                  </div>
+                </div>
+
+                <div className="flex flex-col justify-center p-7 sm:p-10 lg:p-12">
+                  <h3 className="font-serif text-4xl leading-none tracking-[-0.025em] text-[#fff8ee] sm:text-5xl">{workshop.title}</h3>
+                  <p className="mt-4 font-serif text-2xl italic leading-snug text-[#e8b187]">{workshop.subtitle}</p>
+                  <p className="mt-7 text-base font-light leading-7 text-[#f5ddc2]/84">{workshop.text}</p>
+                  <ul className="mt-7 grid gap-3 text-sm text-[#fff8ee]/88">
+                    {workshop.points.map((point) => (
+                      <li key={point} className="flex items-start gap-3">
+                        <span className="mt-[0.55rem] h-px w-6 shrink-0 bg-[#e8b187]" aria-hidden="true" />
+                        <span className="leading-6">{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="mt-9 flex flex-wrap items-center gap-5 border-t border-[#f5ddc2]/20 pt-7">
+                    <a
+                      href="#kontakt"
+                      onClick={() => setForm((current) => ({ ...current, care: workshop.title }))}
+                      className="inline-flex rounded-full bg-[#fff8ee] px-6 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-[#493226] transition duration-500 hover:-translate-y-0.5 hover:bg-white"
+                    >
+                      {locale.workshops.cta}
+                    </a>
+                    <span className="text-xs uppercase tracking-[0.16em] text-[#e7aa7c]">{locale.workshops.availability}</span>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section id="pece" className="bg-[#fff9f0] px-5 py-24 sm:px-8 lg:px-12 lg:py-32">
         <div className="mx-auto max-w-7xl">
           <div className="max-w-3xl">
@@ -699,59 +701,6 @@ export default function App() {
               <img src="/images/draft-care/fruit-dumplings.jpg" alt={locale.nourishment.food} className="h-full min-h-0 w-full rounded-[0.75rem] object-cover object-center shadow-[0_10px_30px_rgba(75,49,37,0.1)]" style={{ filter: "saturate(1.03) contrast(.96) brightness(1.03) sepia(.08)" }} loading="lazy" decoding="async" />
               <img src="/images/draft-care/oats-fruit-nuts.jpg" alt={locale.nourishment.food} className="h-full min-h-0 w-full rounded-[0.75rem_0.75rem_1.75rem_0.75rem] object-cover object-center shadow-[0_10px_30px_rgba(75,49,37,0.1)]" style={{ filter: "saturate(1.06) contrast(.97) brightness(1.03) sepia(.08)" }} loading="lazy" decoding="async" />
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="workshopy" className="relative overflow-hidden bg-[#3b281f] px-5 py-24 text-[#fff8ee] sm:px-8 lg:px-12 lg:py-32">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_12%_15%,rgba(217,154,104,0.2),transparent_30%),radial-gradient(circle_at_88%_72%,rgba(124,143,105,0.18),transparent_34%)]" aria-hidden="true" />
-        <div className="relative mx-auto max-w-7xl">
-          <div className="grid gap-8 border-b border-[#f5ddc2]/25 pb-12 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
-            <p className="text-sm uppercase tracking-[0.24em] text-[#e7aa7c]">{locale.workshops.eyebrow}</p>
-            <div>
-              <h2 className="max-w-4xl font-serif text-5xl leading-tight tracking-[-0.035em] text-[#fff8ee] sm:text-6xl">
-                {locale.workshops.title}
-              </h2>
-              <p className="mt-6 max-w-3xl text-lg font-light leading-8 text-[#f5ddc2]/82">{locale.workshops.intro}</p>
-            </div>
-          </div>
-
-          <div className="mt-12 space-y-7">
-            {locale.workshops.items.map((workshop, index) => (
-              <article key={workshop.title} className="group grid overflow-hidden rounded-[2rem] border border-[#f5ddc2]/20 bg-[#fff8ee]/[0.055] shadow-[0_24px_80px_rgba(20,11,7,0.2)] lg:grid-cols-2">
-                <div className={`relative min-h-[16rem] overflow-hidden sm:min-h-[20rem] ${index === 1 ? "lg:order-2" : ""}`}>
-                  <WorkshopArtwork variant={index === 0 ? "light" : "nourishment"} />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#2d1b14]/35 via-transparent to-white/[0.04]" aria-hidden="true" />
-                  <div className="absolute left-6 top-6 rounded-full border border-white/30 bg-[#2d1b14]/25 px-4 py-2 text-[0.65rem] uppercase tracking-[0.22em] text-[#fff8ee] backdrop-blur-sm sm:left-8 sm:top-8">
-                    Light of Birth · {workshop.number}
-                  </div>
-                </div>
-
-                <div className="flex flex-col justify-center p-7 sm:p-10 lg:p-12">
-                  <h3 className="font-serif text-4xl leading-none tracking-[-0.025em] text-[#fff8ee] sm:text-5xl">{workshop.title}</h3>
-                  <p className="mt-4 font-serif text-2xl italic leading-snug text-[#e8b187]">{workshop.subtitle}</p>
-                  <p className="mt-7 text-base font-light leading-7 text-[#f5ddc2]/84">{workshop.text}</p>
-                  <ul className="mt-7 grid gap-3 text-sm text-[#fff8ee]/88">
-                    {workshop.points.map((point) => (
-                      <li key={point} className="flex items-start gap-3">
-                        <span className="mt-[0.55rem] h-px w-6 shrink-0 bg-[#e8b187]" aria-hidden="true" />
-                        <span className="leading-6">{point}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="mt-9 flex flex-wrap items-center gap-5 border-t border-[#f5ddc2]/20 pt-7">
-                    <a
-                      href="#kontakt"
-                      onClick={() => setForm((current) => ({ ...current, care: workshop.title }))}
-                      className="inline-flex rounded-full bg-[#fff8ee] px-6 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-[#493226] transition duration-500 hover:-translate-y-0.5 hover:bg-white"
-                    >
-                      {locale.workshops.cta}
-                    </a>
-                    <span className="text-xs uppercase tracking-[0.16em] text-[#e7aa7c]">{locale.workshops.availability}</span>
-                  </div>
-                </div>
-              </article>
-            ))}
           </div>
         </div>
       </section>
