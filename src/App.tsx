@@ -108,6 +108,7 @@ export default function App() {
   const [openProduct, setOpenProduct] = useState<string | null>(null);
   const [aboutOpen, setAboutOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [workshopInquiry, setWorkshopInquiry] = useState<string | null>(null);
   const [hash, setHash] = useState(() => window.location.hash.slice(1));
 
   useEffect(() => {
@@ -115,6 +116,22 @@ export default function App() {
     window.addEventListener("hashchange", updateHash);
     return () => window.removeEventListener("hashchange", updateHash);
   }, []);
+
+  useEffect(() => {
+    if (!workshopInquiry) return;
+
+    const previousOverflow = document.body.style.overflow;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setWorkshopInquiry(null);
+    };
+
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", closeOnEscape);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", closeOnEscape);
+    };
+  }, [workshopInquiry]);
 
   useEffect(() => {
     const preferredDomain = lang === "cs" ? "https://www.lightofbirth.cz" : "https://www.lightofbirth.com";
@@ -427,7 +444,7 @@ export default function App() {
         </div>
       </section>
 
-      <section className="px-5 py-24 sm:px-8 lg:px-12 lg:py-32">
+      <section className="px-5 py-14 sm:px-8 sm:py-16 lg:px-12 lg:py-20">
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
           <p className="animate-line-draw border-b border-[#b48660] pb-5 text-sm uppercase tracking-[0.24em] text-[#8a5e42]">
             {locale.space.eyebrow}
@@ -443,7 +460,7 @@ export default function App() {
         </div>
       </section>
 
-      <section id="workshopy" className="relative overflow-hidden bg-[#3b281f] px-5 py-24 text-[#fff8ee] sm:px-8 lg:px-12 lg:py-32">
+      <section id="workshopy" className="relative overflow-hidden bg-[#3b281f] px-5 py-16 text-[#fff8ee] sm:px-8 sm:py-20 lg:px-12 lg:py-24">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_12%_15%,rgba(217,154,104,0.2),transparent_30%),radial-gradient(circle_at_88%_72%,rgba(124,143,105,0.18),transparent_34%)]" aria-hidden="true" />
         <div className="relative mx-auto max-w-7xl">
           <div className="grid gap-8 border-b border-[#f5ddc2]/25 pb-12 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
@@ -486,13 +503,17 @@ export default function App() {
                     ))}
                   </ul>
                   <div className="mt-9 flex flex-wrap items-center gap-5 border-t border-[#f5ddc2]/20 pt-7">
-                    <a
-                      href="#kontakt"
-                      onClick={() => setForm((current) => ({ ...current, care: workshop.title }))}
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setForm((current) => ({ ...current, care: workshop.title }));
+                        setSubmitStatus("idle");
+                        setWorkshopInquiry(workshop.title);
+                      }}
                       className="inline-flex rounded-full bg-[#fff8ee] px-6 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-[#493226] transition duration-500 hover:-translate-y-0.5 hover:bg-white"
                     >
                       {locale.workshops.cta}
-                    </a>
+                    </button>
                     <span className="text-xs uppercase tracking-[0.16em] text-[#e7aa7c]">{locale.workshops.availability}</span>
                   </div>
                 </div>
@@ -502,7 +523,95 @@ export default function App() {
         </div>
       </section>
 
-      <section id="pece" className="bg-[#fff9f0] px-5 py-24 sm:px-8 lg:px-12 lg:py-32">
+      {workshopInquiry ? (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-[#24150f]/65 px-4 py-6 backdrop-blur-sm"
+          role="presentation"
+          onMouseDown={(event) => {
+            if (event.target === event.currentTarget) setWorkshopInquiry(null);
+          }}
+        >
+          <section
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="workshop-inquiry-title"
+            className="relative max-h-full w-full max-w-xl overflow-y-auto rounded-[2rem] bg-[#fff9f0] p-6 text-[#493226] shadow-[0_30px_100px_rgba(20,11,7,0.35)] sm:p-9"
+          >
+            <button
+              type="button"
+              onClick={() => setWorkshopInquiry(null)}
+              aria-label={lang === "cs" ? "Zavřít formulář" : "Close form"}
+              className="absolute right-5 top-5 flex h-10 w-10 items-center justify-center rounded-full border border-[#d8b797] text-2xl font-light text-[#73513d] transition hover:bg-[#f3e6d8]"
+            >
+              ×
+            </button>
+            <p className="pr-12 text-xs uppercase tracking-[0.22em] text-[#a0693f]">Light of Birth · Workshop</p>
+            <h2 id="workshop-inquiry-title" className="mt-3 pr-12 font-serif text-4xl leading-tight">
+              {workshopInquiry}
+            </h2>
+            <p className="mt-4 max-w-md leading-7 text-[#73513d]">
+              {lang === "cs"
+                ? "Nechte mi na sebe kontakt. Jakmile budou připravené termíny a podrobnosti, ozvu se vám."
+                : "Leave me your contact details. I will be in touch as soon as the dates and details are ready."}
+            </p>
+
+            <form onSubmit={handleSubmit} className="mt-7">
+              <label className="absolute -left-[9999px]" aria-hidden="true">
+                Company
+                <input name="company" tabIndex={-1} autoComplete="off" value={form.company} onChange={updateField("company")} />
+              </label>
+              <div className="grid gap-5 sm:grid-cols-2">
+                <label className="space-y-2 text-xs uppercase tracking-[0.16em] text-[#8a5e42]">
+                  {locale.contact.name}
+                  <input
+                    autoFocus
+                    required
+                    value={form.name}
+                    onChange={updateField("name")}
+                    className="w-full border-b border-[#cfa989] bg-transparent py-2.5 text-base normal-case tracking-normal outline-none focus:border-[#7a4628]"
+                    placeholder={locale.contact.namePlaceholder}
+                  />
+                </label>
+                <label className="space-y-2 text-xs uppercase tracking-[0.16em] text-[#8a5e42]">
+                  {locale.contact.email}
+                  <input
+                    required
+                    type="email"
+                    value={form.email}
+                    onChange={updateField("email")}
+                    className="w-full border-b border-[#cfa989] bg-transparent py-2.5 text-base normal-case tracking-normal outline-none focus:border-[#7a4628]"
+                    placeholder={locale.contact.emailPlaceholder}
+                  />
+                </label>
+              </div>
+              <label className="mt-5 block space-y-2 text-xs uppercase tracking-[0.16em] text-[#8a5e42]">
+                {locale.contact.message}
+                <textarea
+                  required
+                  rows={3}
+                  value={form.message}
+                  onChange={updateField("message")}
+                  className="w-full resize-none border-b border-[#cfa989] bg-transparent py-2.5 text-base normal-case tracking-normal outline-none focus:border-[#7a4628]"
+                  placeholder={locale.contact.messagePlaceholder}
+                />
+              </label>
+              <div className="mt-7 flex flex-wrap items-center gap-4">
+                <button
+                  type="submit"
+                  disabled={submitStatus === "submitting"}
+                  className="rounded-full bg-[#493226] px-7 py-3.5 text-xs font-semibold uppercase tracking-[0.16em] text-[#fff8ee] transition hover:bg-[#6b442f] disabled:cursor-wait disabled:opacity-60"
+                >
+                  {submitStatus === "submitting" ? locale.contact.sending : locale.contact.btn}
+                </button>
+                {submitStatus === "success" ? <p className="text-sm text-[#73513d]">{locale.contact.success}</p> : null}
+                {submitStatus === "error" ? <p className="text-sm text-[#9a3f32]">{locale.contact.error}</p> : null}
+              </div>
+            </form>
+          </section>
+        </div>
+      ) : null}
+
+      <section id="pece" className="bg-[#fff9f0] px-5 py-16 sm:px-8 sm:py-20 lg:px-12 lg:py-24">
         <div className="mx-auto max-w-7xl">
           <div className="max-w-3xl">
             <p className="text-sm uppercase tracking-[0.24em] text-[#a0693f]">{locale.care.eyebrow}</p>
@@ -655,7 +764,7 @@ export default function App() {
         </div>
       </section>
 
-      <section id="tradice" className="relative px-5 py-24 sm:px-8 lg:px-12 lg:py-32">
+      <section id="tradice" className="relative px-5 py-16 sm:px-8 sm:py-20 lg:px-12 lg:py-24">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_10%,rgba(244,190,117,0.28),transparent_32%),radial-gradient(circle_at_85%_70%,rgba(177,91,56,0.12),transparent_34%)]" />
         <div className="relative mx-auto grid max-w-7xl gap-14 lg:grid-cols-[1fr_1fr] lg:items-start">
           <div>
@@ -671,7 +780,7 @@ export default function App() {
         </div>
       </section>
 
-      <section id="byliny-a-vyziva" className="border-y border-[#dfc9b4]/70 bg-[linear-gradient(135deg,#f7f0e5_0%,#efe3d3_100%)] px-5 py-14 sm:px-8 lg:px-12 lg:py-16">
+      <section id="byliny-a-vyziva" className="border-y border-[#dfc9b4]/70 bg-[linear-gradient(135deg,#f7f0e5_0%,#efe3d3_100%)] px-5 py-12 sm:px-8 lg:px-12 lg:py-14">
         <div className="mx-auto grid max-w-7xl gap-9 lg:grid-cols-[0.78fr_1.22fr] lg:items-center lg:gap-16">
           <div className="max-w-lg lg:pl-4">
             <p className="text-base leading-7 text-[#73513d]">{locale.nourishment.text}</p>
@@ -705,7 +814,7 @@ export default function App() {
         </div>
       </section>
 
-      <section id="o-mne" className="bg-[#fff9f0] px-5 py-24 sm:px-8 lg:px-12 lg:py-32">
+      <section id="o-mne" className="bg-[#fff9f0] px-5 py-16 sm:px-8 sm:py-20 lg:px-12 lg:py-24">
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-start lg:gap-16">
             <div>
@@ -768,7 +877,7 @@ export default function App() {
         </div>
       </section>
 
-      {showGuides && <section id="shop" className="bg-[#fff9f0] px-5 py-24 sm:px-8 lg:px-12 lg:py-32">
+      {showGuides && <section id="shop" className="bg-[#fff9f0] px-5 py-16 sm:px-8 sm:py-20 lg:px-12 lg:py-24">
         <div className="mx-auto max-w-7xl">
           <div className="flex flex-wrap items-end justify-between gap-6">
             <div className="max-w-2xl">
@@ -838,7 +947,7 @@ export default function App() {
         </div>
       </section>}
 
-      <section className="px-5 py-24 sm:px-8 lg:px-12 lg:py-32">
+      <section className="px-5 py-16 sm:px-8 sm:py-20 lg:px-12 lg:py-24">
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1fr_1fr] lg:items-center">
           <h2 className="font-serif text-5xl leading-tight tracking-[-0.04em] text-[#493226] sm:text-6xl">
             {locale.location.title}
@@ -849,7 +958,7 @@ export default function App() {
         </div>
       </section>
 
-      <section className="border-y border-[#dfc9b4] bg-[#f7efe4] px-5 py-20 sm:px-8 lg:px-12 lg:py-24">
+      <section className="border-y border-[#dfc9b4] bg-[#f7efe4] px-5 py-16 sm:px-8 lg:px-12 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <div className="max-w-3xl">
             <p className="text-sm uppercase tracking-[0.24em] text-[#a0693f]">{locale.faq.eyebrow}</p>
@@ -866,7 +975,7 @@ export default function App() {
         </div>
       </section>
 
-      <section id="kontakt" className="bg-[#fff9f0] px-5 py-24 sm:px-8 lg:px-12 lg:py-32">
+      <section id="kontakt" className="bg-[#fff9f0] px-5 py-16 sm:px-8 sm:py-20 lg:px-12 lg:py-24">
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.85fr_1.15fr]">
           <div>
             <p className="text-sm uppercase tracking-[0.24em] text-[#a0693f]">{locale.contact.eyebrow}</p>
