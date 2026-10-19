@@ -444,6 +444,69 @@ export default function App() {
         </div>
       </section>
 
+      <section id="o-mne" className="bg-[#fff9f0] px-5 py-16 sm:px-8 sm:py-20 lg:px-12 lg:py-24">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-start lg:gap-16">
+            <div>
+              <img
+                src="/images/eliska-o-mne-new.jpg"
+                alt={lang === "cs" ? "Dula Eliška S. Eislerová" : "Doula Eliška S. Eislerová"}
+                className="aspect-[4/5] w-full rounded-2xl object-cover object-[48%_center] shadow-[0_18px_55px_rgba(75,49,37,0.12)]"
+                loading="eager"
+                decoding="async"
+              />
+            </div>
+            <div className="text-lg leading-8 text-[#73513d]">
+              <p className="text-sm uppercase tracking-[0.24em] text-[#a0693f]">{locale.about.eyebrow}</p>
+              <h2 className="mt-4 font-serif text-5xl leading-tight tracking-[-0.04em] text-[#493226] sm:text-6xl">
+                {locale.about.title}
+              </h2>
+              <div className="mt-10 space-y-8">
+                <p>{locale.about.p1}</p>
+                <p>
+                  <strong className="font-semibold text-[#493226]">{locale.about.p2Lead}</strong>
+                  {locale.about.p2}
+                </p>
+                <p>{locale.about.p3}</p>
+                <p>{locale.about.p4}</p>
+              </div>
+
+              <div className="mt-10 border-t border-[#d8b797] pt-8">
+                <button
+                  type="button"
+                  onClick={() => setAboutOpen((open) => !open)}
+                  aria-expanded={aboutOpen}
+                  aria-controls="vzdelani-a-kurzy"
+                  className="inline-flex items-center gap-3 text-sm uppercase tracking-[0.24em] text-[#a0693f] transition hover:text-[#7a4628]"
+                >
+                  {locale.about.more}
+                  <span
+                    className={`text-base transition-transform duration-500 ${aboutOpen ? "rotate-45" : ""}`}
+                    aria-hidden="true"
+                  >
+                    +
+                  </span>
+                </button>
+
+                {aboutOpen ? (
+                  <div id="vzdelani-a-kurzy" className="mt-8 border-t border-[#d8b797] pt-8">
+                    <p className="text-sm uppercase tracking-[0.24em] text-[#a0693f]">{locale.about.courses}</p>
+                    <ul className="mt-5 space-y-3 text-base">
+                      {coursesData[lang].map((course) => (
+                        <li key={course} className="flex gap-3 leading-7">
+                          <span className="mt-3 h-1.5 w-1.5 shrink-0 rounded-full bg-[#c58958]" />
+                          {course}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ) : null}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="px-5 py-14 sm:px-8 sm:py-16 lg:px-12 lg:py-20">
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
           <p className="animate-line-draw border-b border-[#b48660] pb-5 text-sm uppercase tracking-[0.24em] text-[#8a5e42]">
@@ -809,69 +872,6 @@ export default function App() {
             <div className="grid min-h-0 grid-cols-2 gap-2.5 sm:gap-3">
               <img src="/images/draft-care/fruit-dumplings.jpg" alt={locale.nourishment.food} className="h-full min-h-0 w-full rounded-[0.75rem] object-cover object-center shadow-[0_10px_30px_rgba(75,49,37,0.1)]" style={{ filter: "saturate(1.03) contrast(.96) brightness(1.03) sepia(.08)" }} loading="lazy" decoding="async" />
               <img src="/images/draft-care/oats-fruit-nuts.jpg" alt={locale.nourishment.food} className="h-full min-h-0 w-full rounded-[0.75rem_0.75rem_1.75rem_0.75rem] object-cover object-center shadow-[0_10px_30px_rgba(75,49,37,0.1)]" style={{ filter: "saturate(1.06) contrast(.97) brightness(1.03) sepia(.08)" }} loading="lazy" decoding="async" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="o-mne" className="bg-[#fff9f0] px-5 py-16 sm:px-8 sm:py-20 lg:px-12 lg:py-24">
-        <div className="mx-auto max-w-7xl">
-          <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-start lg:gap-16">
-            <div>
-              <img
-                src="/images/eliska-o-mne-new.jpg"
-                alt={lang === "cs" ? "Dula Eliška S. Eislerová" : "Doula Eliška S. Eislerová"}
-                className="aspect-[4/5] w-full rounded-2xl object-cover object-[48%_center] shadow-[0_18px_55px_rgba(75,49,37,0.12)]"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <div className="text-lg leading-8 text-[#73513d]">
-              <p className="text-sm uppercase tracking-[0.24em] text-[#a0693f]">{locale.about.eyebrow}</p>
-              <h2 className="mt-4 font-serif text-5xl leading-tight tracking-[-0.04em] text-[#493226] sm:text-6xl">
-                {locale.about.title}
-              </h2>
-              <div className="mt-10 space-y-8">
-                <p>{locale.about.p1}</p>
-                <p>
-                  <strong className="font-semibold text-[#493226]">{locale.about.p2Lead}</strong>
-                  {locale.about.p2}
-                </p>
-                <p>{locale.about.p3}</p>
-                <p>{locale.about.p4}</p>
-              </div>
-
-              <div className="mt-10 border-t border-[#d8b797] pt-8">
-              <button
-                type="button"
-                onClick={() => setAboutOpen((open) => !open)}
-                aria-expanded={aboutOpen}
-                aria-controls="vzdelani-a-kurzy"
-                className="inline-flex items-center gap-3 text-sm uppercase tracking-[0.24em] text-[#a0693f] transition hover:text-[#7a4628]"
-              >
-                {locale.about.more}
-                <span
-                  className={`text-base transition-transform duration-500 ${aboutOpen ? "rotate-45" : ""}`}
-                  aria-hidden="true"
-                >
-                  +
-                </span>
-              </button>
-
-              {aboutOpen ? (
-                <div id="vzdelani-a-kurzy" className="mt-8 border-t border-[#d8b797] pt-8">
-                  <p className="text-sm uppercase tracking-[0.24em] text-[#a0693f]">{locale.about.courses}</p>
-                  <ul className="mt-5 space-y-3 text-base">
-                    {coursesData[lang].map((course) => (
-                      <li key={course} className="flex gap-3 leading-7">
-                        <span className="mt-3 h-1.5 w-1.5 shrink-0 rounded-full bg-[#c58958]" />
-                        {course}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ) : null}
-              </div>
             </div>
           </div>
         </div>

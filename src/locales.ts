@@ -73,14 +73,14 @@ export const t = {
       items: [
         {
           number: "Workshop I",
-          title: "Light Up Before Birth",
+          title: "Rozsviť se před porodem",
           subtitle: "Vědomí, důvěra a spojení před porodem.",
           text: "Pro vás, pokud se chcete na porod připravit nejen informacemi, ale také skrze tělo, dech a hlubší kontakt se sebou. V bezpečném prostoru získáte praktické nástroje, které vám mohou pomoci cítit se klidněji a jistěji.",
           points: ["porozumění proměnám před porodem", "dech, tělo a vnitřní opora", "prostor pro otázky a vlastní přání"],
         },
         {
           number: "Workshop II",
-          title: "Nourishment After Birth",
+          title: "Výživa po porodu",
           subtitle: "Víc než jídlo ~ výživa pro tělo, mysl a srdce.",
           text: "Pro vás, pokud chcete šestinedělí vnímat jako čas regenerace, tepla a laskavého zpomalení. Budeme mluvit o výživě v širším smyslu ~ o jídle, odpočinku, emocích i podpoře, kterou můžete přijímat.",
           points: ["výživa a teplo v šestinedělí", "odpočinek, hranice a praktická podpora", "jemná péče o tělo i psychiku"],
