@@ -68,7 +68,6 @@ export const t = {
       eyebrow: "Light of Birth · Workshopy",
       title: "Prostor pro vědomou přípravu a hlubší péči",
       intro: "Dva komorní workshopy pro ženy, které chtějí vstoupit do porodu a šestinedělí s větší důvěrou, porozuměním a laskavou péčí o sebe.",
-      availability: "Termíny a podrobnosti připravuji",
       cta: "Mám zájem",
       items: [
         {
@@ -215,7 +214,6 @@ export const t = {
       eyebrow: "Light of Birth · Workshops",
       title: "A space for conscious preparation and deeper care",
       intro: "Two intimate workshops for women who want to enter birth and postpartum with greater confidence, understanding, and compassionate care for themselves.",
-      availability: "Dates and details are coming soon",
       cta: "I’m interested",
       items: [
         {

@@ -526,17 +526,7 @@ export default function App() {
       <section id="workshopy" className="relative overflow-hidden bg-[#3b281f] px-5 py-16 text-[#fff8ee] sm:px-8 sm:py-20 lg:px-12 lg:py-24">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_12%_15%,rgba(217,154,104,0.2),transparent_30%),radial-gradient(circle_at_88%_72%,rgba(124,143,105,0.18),transparent_34%)]" aria-hidden="true" />
         <div className="relative mx-auto max-w-7xl">
-          <div className="grid gap-8 border-b border-[#f5ddc2]/25 pb-12 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
-            <p className="text-sm uppercase tracking-[0.24em] text-[#e7aa7c]">{locale.workshops.eyebrow}</p>
-            <div>
-              <h2 className="max-w-4xl font-serif text-5xl leading-tight tracking-[-0.035em] text-[#fff8ee] sm:text-6xl">
-                {locale.workshops.title}
-              </h2>
-              <p className="mt-6 max-w-3xl text-lg font-light leading-8 text-[#f5ddc2]/82">{locale.workshops.intro}</p>
-            </div>
-          </div>
-
-          <div className="mt-12 space-y-7">
+          <div className="space-y-7">
             {locale.workshops.items.map((workshop, index) => (
               <article key={workshop.title} className="group grid overflow-hidden rounded-[2rem] border border-[#f5ddc2]/20 bg-[#fff8ee]/[0.055] shadow-[0_24px_80px_rgba(20,11,7,0.2)] lg:grid-cols-2">
                 <div className={`relative min-h-[16rem] overflow-hidden sm:min-h-[20rem] ${index === 1 ? "lg:order-2" : ""}`}>
@@ -577,7 +567,6 @@ export default function App() {
                     >
                       {locale.workshops.cta}
                     </button>
-                    <span className="text-xs uppercase tracking-[0.16em] text-[#e7aa7c]">{locale.workshops.availability}</span>
                   </div>
                 </div>
               </article>
