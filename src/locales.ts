@@ -18,7 +18,6 @@ export const t = {
       line1: "Citlivá příprava k porodu, doprovod a poporodní péče pro vás v Praze, na Kutnohorsku i online.",
       btn1: "Domluvit úvodní setkání",
       btn2: "Prohlédnout péči",
-      capacity: "Doprovázím jednu ženu měsíčně, abych pro vás mohla být skutečně k dispozici.",
     },
     space: {
       eyebrow: "O prostoru péče",
@@ -55,8 +54,6 @@ export const t = {
     },
     about: {
       p1: "K porodu vás mohu doprovodit především v porodnicích v Praze a v okolí Kutné Hory.",
-      p2Lead: "Doprovázím pouze jednu ženu měsíčně",
-      p2: ", abych měla dostatek prostoru pro individuální péči před porodem, během něj i v období po narození miminka.",
       p3: "Při přípravě a doprovodu využívám práci s tělem a dechem, rebozo i principy tradiční české bylinné a ájurvédské poporodní péče.",
       p4: "Metody jsou ale až na druhém místě. Nejdůležitější jste vy ~ vaše přání, vaše hranice a to, co vám v danou chvíli přináší pocit bezpečí.",
       eyebrow: "O mně",
@@ -164,7 +161,6 @@ export const t = {
       line1: "Personal birth preparation, continuous birth support, and postpartum care for you in Prague, Kutná Hora, and online.",
       btn1: "Schedule a meeting",
       btn2: "View care packages",
-      capacity: "I support one woman each month so that I can be truly available for you.",
     },
     space: {
       eyebrow: "About the care space",
@@ -201,8 +197,6 @@ export const t = {
     },
     about: {
       p1: "I can accompany you to birth primarily in maternity hospitals in Prague and the Kutná Hora area.",
-      p2Lead: "I support only one woman each month",
-      p2: ", so that I have enough space to provide individual care before and during birth, as well as after the baby is born.",
       p3: "My support may include practical birth preparation, body and breath work, rebozo, and principles of traditional Czech herbal and Ayurvedic postpartum care.",
       p4: "The methods always come second. What matters most is you ~ your wishes, your boundaries, and what helps you feel safe in each moment.",
       eyebrow: "About",

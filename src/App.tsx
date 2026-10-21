@@ -437,9 +437,6 @@ export default function App() {
                 {locale.hero.btn2}
               </a>
             </div>
-            <p className="animate-rise-three mt-5 max-w-xl text-sm leading-6 text-[#f7e6d4]/85">
-              {locale.hero.capacity}
-            </p>
           </div>
         </div>
       </section>
@@ -463,10 +460,6 @@ export default function App() {
               </h2>
               <div className="mt-10 space-y-8">
                 <p>{locale.about.p1}</p>
-                <p>
-                  <strong className="font-semibold text-[#493226]">{locale.about.p2Lead}</strong>
-                  {locale.about.p2}
-                </p>
                 <p>{locale.about.p3}</p>
                 <p>{locale.about.p4}</p>
               </div>
