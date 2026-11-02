@@ -462,6 +462,7 @@ export default function App() {
                 <p>{locale.about.p1}</p>
                 <p>{locale.about.p3}</p>
                 <p>{locale.about.p4}</p>
+                {locale.about.p5 ? <p>{locale.about.p5}</p> : null}
               </div>
 
               <div className="mt-10 border-t border-[#d8b797] pt-8">
