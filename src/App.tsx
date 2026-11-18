@@ -337,8 +337,9 @@ export default function App() {
               accentClassName="text-[#e6a179]"
             />
           </a>
-          <div className="hidden items-center gap-6 text-sm tracking-[0.16em] uppercase lg:flex lg:gap-8">
+          <div className="hidden items-center gap-5 text-xs tracking-[0.14em] uppercase lg:flex xl:gap-7">
             <a className="transition hover:text-white" href="#pece">{locale.nav.care}</a>
+            <a className="transition hover:text-white" href="#podpora-pri-porodu">{locale.nav.birthSupport}</a>
             <a className="transition hover:text-white" href="#workshopy">{locale.nav.workshops}</a>
             <a className="transition hover:text-white" href="#tradice">{locale.nav.tradition}</a>
             <a className="transition hover:text-white" href="#o-mne">{locale.nav.about}</a>
@@ -375,6 +376,7 @@ export default function App() {
             <div className="flex flex-col text-sm uppercase tracking-[0.16em]">
               {[
                 ["#pece", locale.nav.care],
+                ["#podpora-pri-porodu", locale.nav.birthSupport],
                 ["#workshopy", locale.nav.workshops],
                 ["#tradice", locale.nav.tradition],
                 ["#o-mne", locale.nav.about],
@@ -679,16 +681,11 @@ export default function App() {
               const service = servicesData[lang][serviceIndex];
               const isExpanded = expandedService === serviceIndex;
               const detailId = `service-detail-${serviceIndex}`;
-              const isFeatured = pathIndex === 1;
-
               return (
                 <article
+                  id={serviceIndex === 1 ? "podpora-pri-porodu" : undefined}
                   key={service.title}
-                  className={`overflow-hidden rounded-[1.75rem] border transition duration-500 ${
-                    isFeatured
-                      ? "border-[#b9784e] bg-[#f8eadc] shadow-[0_20px_55px_rgba(122,70,40,0.14)]"
-                      : "border-[#dfc4aa] bg-[#fbf3e8]"
-                  } ${isExpanded ? "lg:col-span-3" : ""}`}
+                  className={`scroll-mt-24 overflow-hidden rounded-[1.75rem] border border-[#dfc4aa] bg-[#fbf3e8] transition duration-500 ${isExpanded ? "lg:col-span-3" : ""}`}
                 >
                   <button
                     type="button"
@@ -699,11 +696,6 @@ export default function App() {
                   >
                     <div className="flex min-h-7 items-start justify-between gap-4">
                       <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#a0693f]">{locale.care.paths[pathIndex]}</p>
-                      {isFeatured ? (
-                        <span className="rounded-full bg-[#a7663f] px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-[#fff8ee]">
-                          {locale.care.mostPopular}
-                        </span>
-                      ) : null}
                     </div>
                     <h3 className="mt-7 font-serif text-3xl leading-tight text-[#493226] sm:text-4xl">{service.title}</h3>
                     <p className="mt-4 flex-1 text-base leading-7 text-[#73513d]">{locale.care.pathSummaries[pathIndex]}</p>
@@ -744,17 +736,15 @@ export default function App() {
                 <article className="mt-10 overflow-hidden rounded-2xl border border-[#dfc4aa] bg-[#fbf3e8]">
                   <button type="button" aria-expanded={isExpanded} aria-controls={detailId} onClick={() => setExpandedService(isExpanded ? null : 2)} className="grid w-full gap-6 p-7 text-left md:grid-cols-[1fr_auto] md:items-center md:p-9">
                     <div>
+                      <span className="mb-4 inline-flex rounded-full bg-[#a7663f] px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-[#fff8ee]">
+                        {locale.care.mostPopular}
+                      </span>
                       <h4 className="font-serif text-3xl text-[#493226]">{service.title}</h4>
                       <p className="mt-3 text-base leading-7 text-[#73513d]">{service.summary}</p>
                     </div>
                     <div className="flex items-center justify-between gap-6 md:justify-end">
                       <div className="md:text-right">
-                        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#a0693f]">{service.priceLabel}</p>
-                        <p className="mt-1 font-serif text-3xl text-[#493226]">{service.price}</p>
-                        <p className="mt-1 max-w-xs text-sm leading-6 text-[#8a5e42]">{service.priceCondition}</p>
-                        <p className="mt-2 text-sm leading-6 text-[#73513d]">
-                          {service.laterPriceLabel} <strong className="font-semibold text-[#493226]">{service.laterPrice}</strong>
-                        </p>
+                        <p className="font-serif text-3xl text-[#493226]">{service.price}</p>
                       </div>
                       <span className="flex h-11 w-11 items-center justify-center rounded-full border border-[#cfa989] text-[#7a4628]">
                         <span className={`text-xl transition-transform duration-500 ${isExpanded ? "rotate-45" : ""}`}>+</span>
