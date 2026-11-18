@@ -715,6 +715,34 @@ export default function App() {
             })}
           </div>
 
+          {(() => {
+            const service = servicesData[lang][2];
+            const isExpanded = expandedService === 2;
+            const detailId = "service-detail-2";
+            return (
+              <article className="mt-5 overflow-hidden rounded-2xl border border-[#dfc4aa] bg-[#fbf3e8]">
+                <button type="button" aria-expanded={isExpanded} aria-controls={detailId} onClick={() => setExpandedService(isExpanded ? null : 2)} className="grid w-full gap-6 p-7 text-left md:grid-cols-[1fr_auto] md:items-center md:p-9">
+                  <div>
+                    <span className="mb-4 inline-flex rounded-full bg-[#a7663f] px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-[#fff8ee]">
+                      {locale.care.mostPopular}
+                    </span>
+                    <h4 className="font-serif text-3xl text-[#493226]">{service.title}</h4>
+                    <p className="mt-3 text-base leading-7 text-[#73513d]">{service.summary}</p>
+                  </div>
+                  <div className="flex items-center justify-between gap-6 md:justify-end">
+                    <div className="md:text-right">
+                      <p className="font-serif text-3xl text-[#493226]">{service.price}</p>
+                    </div>
+                    <span className="flex h-11 w-11 items-center justify-center rounded-full border border-[#cfa989] text-[#7a4628]">
+                      <span className={`text-xl transition-transform duration-500 ${isExpanded ? "rotate-45" : ""}`}>+</span>
+                    </span>
+                  </div>
+                </button>
+                {isExpanded ? serviceDetail(service, detailId) : null}
+              </article>
+            );
+          })()}
+
           <div className="mt-10 text-center">
             <a href="#kontakt" className="inline-flex rounded-full bg-[#493226] px-7 py-4 text-sm font-semibold uppercase tracking-[0.14em] text-[#fff8ee] transition hover:-translate-y-1 hover:bg-[#6b442f]">
               {locale.care.cta}
@@ -727,34 +755,6 @@ export default function App() {
               <h3 className="font-serif text-4xl text-[#493226] sm:text-5xl">{locale.care.extendedTitle}</h3>
               <p className="mt-5 text-lg leading-8 text-[#73513d]">{locale.care.extendedText}</p>
             </div>
-
-            {(() => {
-              const service = servicesData[lang][2];
-              const isExpanded = expandedService === 2;
-              const detailId = "service-detail-2";
-              return (
-                <article className="mt-10 overflow-hidden rounded-2xl border border-[#dfc4aa] bg-[#fbf3e8]">
-                  <button type="button" aria-expanded={isExpanded} aria-controls={detailId} onClick={() => setExpandedService(isExpanded ? null : 2)} className="grid w-full gap-6 p-7 text-left md:grid-cols-[1fr_auto] md:items-center md:p-9">
-                    <div>
-                      <span className="mb-4 inline-flex rounded-full bg-[#a7663f] px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-[#fff8ee]">
-                        {locale.care.mostPopular}
-                      </span>
-                      <h4 className="font-serif text-3xl text-[#493226]">{service.title}</h4>
-                      <p className="mt-3 text-base leading-7 text-[#73513d]">{service.summary}</p>
-                    </div>
-                    <div className="flex items-center justify-between gap-6 md:justify-end">
-                      <div className="md:text-right">
-                        <p className="font-serif text-3xl text-[#493226]">{service.price}</p>
-                      </div>
-                      <span className="flex h-11 w-11 items-center justify-center rounded-full border border-[#cfa989] text-[#7a4628]">
-                        <span className={`text-xl transition-transform duration-500 ${isExpanded ? "rotate-45" : ""}`}>+</span>
-                      </span>
-                    </div>
-                  </button>
-                  {isExpanded ? serviceDetail(service, detailId) : null}
-                </article>
-              );
-            })()}
 
             <div className="mt-8 grid gap-7 xl:grid-cols-2">
               {[3, 4].map((serviceIndex) => {
